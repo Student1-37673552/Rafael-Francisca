@@ -59,7 +59,7 @@ if(navToggle && navLinks){
 // RSVP — envia os dados para a Google Sheet através do Google Apps Script.
 // PASSO OBRIGATÓRIO: cola aqui o URL que o Google te deu depois do Deploy
 // (ver google-apps-script/Codigo.gs e o README para o passo a passo completo).
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTQ0berbmJik7KX9XulC4ehrCuTWS4y06V9VkgH1p2pV7MeU6CbMCZIS1xF-SqVsCdAQ/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxC3wYSJiK_eVHpBmuttri1AYdk95TjTTM0vDN86jA3YuGS4aepRwKvfvZf78DsjxfOlg/exec";
 
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpSuccess = document.getElementById("rsvpSuccess");
