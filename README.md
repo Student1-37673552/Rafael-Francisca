@@ -12,6 +12,45 @@ site-casamento/
 └── assets/            → pasta vazia, para fotos quando as tiveres
 ```
 
+## Novidades desta versão
+
+- Nomes trocados: **Francisca & Rafael** em todo o site
+- Nova secção **"Em Fotografias"** com 6 placeholders para fotos (ver como adicionar fotos reais, abaixo)
+- Placeholder circular de foto no hero, por cima dos nomes
+- Efeitos: as secções e cartões aparecem com um suave fade-up ao fazer scroll; confetti dispara quando alguém confirma presença no RSVP
+
+## Como funciona o RSVP — ligado à tua Google Sheet
+
+O formulário está preparado para enviar cada confirmação como uma nova linha numa Google Sheet tua. Faltam só 4 passos (10 minutos):
+
+### 1. Criar a Sheet
+Cria uma Google Sheet nova. Na primeira linha, mete os cabeçalhos: `Data | Nome | Presença | Acompanhantes | Restrições`
+
+### 2. Colar o script
+Abre **Extensões → Apps Script** dentro dessa Sheet, apaga o que lá estiver e cola o conteúdo do ficheiro `google-apps-script/Codigo.gs` (está nesta pasta). Guarda.
+
+### 3. Publicar
+`Deploy → New deployment` → tipo **Web app** → *Execute as*: a tua conta, *Who has access*: **Anyone** → `Deploy`. Autoriza o acesso quando pedir (é normal aparecer o aviso "Google hasn't verified this app" — é um script teu, podes avançar em *Advanced → Go to [projeto] (unsafe)*).
+
+### 4. Ligar ao site
+Copia o URL que o Google te dá no fim (algo como `https://script.google.com/macros/s/.../exec`) e cola-o em `js/script.js`, nesta linha:
+
+```js
+const GOOGLE_SCRIPT_URL = "COLA_AQUI_O_TEU_URL_DO_APPS_SCRIPT";
+```
+
+Substitui o texto entre aspas pelo URL. Guarda, faz commit/push, e o formulário passa a escrever diretamente na tua Sheet — cada confirmação aparece como uma linha nova, em tempo real.
+
+**Nota:** enquanto o `GOOGLE_SCRIPT_URL` não for substituído, o site mostra um aviso a lembrar que falta este passo, em vez de tentar enviar para o sítio errado.
+
+## Como adicionar fotos reais
+
+Os placeholders (📷) na secção "Em Fotografias" e no hero são só para veres o layout. Para colocar fotos verdadeiras:
+
+1. Põe as imagens dentro da pasta `assets/` (ex. `assets/foto1.jpg`)
+2. No `index.html`, substitui cada `<div class="photo-placeholder">...</div>` por `<div class="photo-placeholder"><img src="assets/foto1.jpg" alt="descrição da foto"></div>`
+3. Diz-me quando tiveres as fotos escolhidas que eu faço esta troca toda de uma vez, incluindo o ajuste de CSS para as imagens ficarem bem enquadradas
+
 ## O que já está feito
 
 - Hero com contador em tempo real até 24/10/2027 às 15:30 (atualiza automaticamente quando mudares a data em `script.js`)
