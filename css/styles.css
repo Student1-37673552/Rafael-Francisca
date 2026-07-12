@@ -134,11 +134,13 @@ a{ color: inherit; }
   justify-content: space-between;
 }
 .nav-brand{
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  text-decoration: none;
-  color: var(--wine);
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+}
+.nav-logo{
+  height: 46px;
+  width: auto;
+  display: block;
 }
 .nav-links{
   display: flex;
@@ -196,6 +198,13 @@ a{ color: inherit; }
   text-align: center;
   padding: 2rem 1.5rem;
 }
+.hero-logo{
+  width: min(280px, 70vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 1.2rem;
+}
+
 .hero-photo{
   width: 132px;
   height: 132px;
@@ -508,6 +517,16 @@ a{ color: inherit; }
   font-size: 1.5rem;
   margin-bottom: 0.4rem;
 }
+.footer-logo{
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  background: var(--cream-soft);
+  border-radius: 999px;
+  padding: 0.6rem;
+}
+
 .footer-date{
   font-size: 0.85rem;
   letter-spacing: 0.15em;

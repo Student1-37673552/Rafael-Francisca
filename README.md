@@ -36,7 +36,7 @@ Abre **Extensões → Apps Script** dentro dessa Sheet, apaga o que lá estiver 
 Copia o URL que o Google te dá no fim (algo como `https://script.google.com/macros/s/.../exec`) e cola-o em `js/script.js`, nesta linha:
 
 ```js
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxC3wYSJiK_eVHpBmuttri1AYdk95TjTTM0vDN86jA3YuGS4aepRwKvfvZf78DsjxfOlg/exec";
+const GOOGLE_SCRIPT_URL = "COLA_AQUI_O_TEU_URL_DO_APPS_SCRIPT";
 ```
 
 Substitui o texto entre aspas pelo URL. Guarda, faz commit/push, e o formulário passa a escrever diretamente na tua Sheet — cada confirmação aparece como uma linha nova, em tempo real.
