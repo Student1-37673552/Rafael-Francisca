@@ -1,0 +1,458 @@
+/* ==========================================================================
+   RAFAEL & FRANCISCA — sistema de design
+   Paleta inspirada no outono português e nos azulejos: vinho, azul-azulejo,
+   dourado e pergaminho. Fraunces (display) + Karla (corpo).
+   ========================================================================== */
+
+:root{
+  --wine: #4F242D;        /* bordeaux */
+  --wine-deep: #331820;   /* bordeaux mais escuro, para hover/profundidade */
+  --azulejo: #54647B;     /* azul ardósia */
+  --azulejo-deep: #3A4759;/* azul ardósia mais escuro, para fundos de secção */
+  --gold: #757C2C;        /* verde oliva, substitui o dourado como accent */
+  --gold-soft: #8791A6;   /* tom claro da família ardósia, para texto sobre fundos claros/escuros */
+  --azul-claro: #BDDDF6;  /* azul bebé, usado como toque de luz */
+  --cream: #EFF6FC;       /* fundo claro com base no azul bebé */
+  --cream-soft: #F8FBFD;  /* fundo quase branco, com o mesmo undertone frio */
+  --ink: #241E22;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Karla", sans-serif;
+
+  --max-width: 1120px;
+  --radius: 2px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream-soft);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  margin: 0;
+  font-weight: 600;
+}
+
+p{ margin: 0; }
+
+a{ color: inherit; }
+
+.eyebrow{
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 0.9rem;
+  display: inline-block;
+}
+.eyebrow--dark{ color: var(--azulejo); }
+
+.section-inner{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+.section-title{
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--wine);
+  margin-bottom: 1rem;
+}
+.section-title--light{ color: var(--cream); }
+
+.section-lead{
+  font-size: 1.05rem;
+  color: #5f6b78;
+  max-width: 46ch;
+  margin-bottom: 3rem;
+}
+.section-lead--dark{ color: var(--cream-soft); opacity: 0.85; }
+
+.amp{ font-family: var(--font-display); font-style: italic; color: var(--gold); }
+
+/* ============ AZULEJO MOTIF (signature element) ============ */
+/* A repeating hand-built tile line pattern, referencing Portuguese azulejos.
+   Used as texture band in the hero and as section dividers. */
+
+.azulejo-band{
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(45deg, var(--azulejo) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--azulejo) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--azulejo) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--azulejo) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  pointer-events: none;
+}
+
+.divider-azulejo{
+  height: 46px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--azulejo) 0 6px,
+    var(--gold) 6px 8px,
+    transparent 8px 30px
+  );
+  background-size: 42px 42px;
+  opacity: 0.9;
+}
+.divider-azulejo--flip{ transform: scaleY(-1); }
+
+/* ============ NAV ============ */
+.site-nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(248, 251, 253, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(43,33,28,0.08);
+}
+.nav-inner{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--wine);
+  letter-spacing: 0.02em;
+}
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a{
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.nav-links a:hover{ opacity: 1; }
+.nav-cta{
+  background: var(--wine);
+  color: var(--cream-soft) !important;
+  opacity: 1 !important;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+}
+.nav-cta:hover{ background: var(--wine-deep); }
+
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.nav-toggle span{
+  width: 22px; height: 2px;
+  background: var(--wine);
+  display: block;
+}
+
+/* ============ HERO ============ */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--azul-claro) 0%, var(--cream) 60%);
+  overflow: hidden;
+  padding-top: 4rem;
+}
+.hero .eyebrow{ color: var(--wine); opacity: 0.7; }
+.hero-inner{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+.hero-names{
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  color: var(--wine);
+  line-height: 1;
+  margin: 0.6rem 0;
+}
+.hero-date{
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+  color: var(--azulejo);
+  margin-bottom: 0.6rem;
+}
+.hero-date .dot{ color: var(--gold); margin: 0 0.2em; }
+.hero-sub{
+  font-size: 0.95rem;
+  color: #5f6b78;
+  margin-bottom: 3rem;
+}
+
+.countdown{
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  margin-bottom: 3.5rem;
+}
+.countdown-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+.countdown-item .num{
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--wine);
+  font-variant-numeric: tabular-nums;
+}
+.countdown-item .label{
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--azulejo);
+  margin-top: 0.25rem;
+}
+
+.scroll-cue{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--wine);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.scroll-cue svg{ animation: bob 2s ease-in-out infinite; }
+@keyframes bob{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(6px); }
+}
+
+/* ============ HISTÓRIA ============ */
+.historia{ background: var(--cream-soft); }
+
+.timeline{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.timeline-item{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.timeline-mark{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  color: var(--wine);
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.timeline-content h3{
+  font-size: 1.35rem;
+  color: var(--wine);
+  margin-bottom: 0.5rem;
+}
+.timeline-content p{
+  color: #5b6270;
+  max-width: 62ch;
+}
+
+/* ============ O GRANDE DIA ============ */
+.dia{ background: var(--azulejo-deep); }
+.dia .section-lead{ color: var(--gold-soft); }
+
+.schedule{
+  display: flex;
+  flex-direction: column;
+}
+.schedule-item{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(245,237,224,0.15);
+}
+.schedule-item:last-child{ border-bottom: 1px solid rgba(245,237,224,0.15); }
+.schedule-time{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.schedule-body h3{
+  color: var(--cream-soft);
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+.schedule-body p{
+  color: rgba(245,237,224,0.72);
+  font-size: 0.92rem;
+}
+
+/* ============ INFO PRÁTICA ============ */
+.info{ background: var(--cream-soft); }
+.info-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+.info-card{
+  background: var(--cream);
+  padding: 1.8rem;
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+}
+.info-card h3{
+  color: var(--wine);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.info-card p{
+  color: #5f6b78;
+  font-size: 0.92rem;
+}
+
+/* ============ LOCAL ============ */
+.local{ background: var(--wine); }
+.local .section-lead{ color: var(--gold-soft); }
+.map-placeholder{
+  background: rgba(248,251,253,0.08);
+  border: 1px dashed rgba(248,251,253,0.3);
+  border-radius: var(--radius);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.map-placeholder p{ color: var(--cream-soft); opacity: 0.7; }
+
+/* ============ RSVP ============ */
+.rsvp{ background: var(--cream-soft); }
+.rsvp-form{
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.form-row{ display: flex; flex-direction: column; gap: 0.4rem; }
+.form-row label{
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--azulejo);
+}
+.form-row input, .form-row select{
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(43,33,28,0.2);
+  border-radius: var(--radius);
+  background: var(--cream);
+  color: var(--ink);
+}
+.form-row input:focus, .form-row select:focus{
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+.btn-submit{
+  align-self: flex-start;
+  background: var(--wine);
+  color: var(--cream-soft);
+  border: none;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-submit:hover{ background: var(--wine-deep); }
+.btn-submit:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+.form-note{
+  font-size: 0.78rem;
+  color: #8b93a0;
+  font-style: italic;
+}
+
+/* ============ FOOTER ============ */
+.site-footer{
+  background: var(--ink);
+  color: var(--cream-soft);
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+}
+.footer-names{
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+.footer-date{
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-soft);
+  margin-bottom: 1.2rem;
+}
+.footer-note{
+  font-size: 0.78rem;
+  opacity: 0.5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 780px){
+  .nav-links{
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--cream-soft);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: 1px solid rgba(43,33,28,0.08);
+  }
+  .nav-links.open{ max-height: 400px; padding: 1rem 1.5rem 1.5rem; }
+  .nav-links a{ padding: 0.7rem 0; width: 100%; }
+  .nav-cta{ margin-top: 0.5rem; text-align: center; }
+  .nav-toggle{ display: flex; }
+
+  .timeline-item{ grid-template-columns: 44px 1fr; }
+  .schedule-item{ grid-template-columns: 1fr; gap: 0.4rem; }
+}
