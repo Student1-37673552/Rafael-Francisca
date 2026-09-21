@@ -85,24 +85,7 @@ a{ color: inherit; }
 
 .amp{ font-family: var(--font-display); font-style: italic; color: var(--gold); }
 
-/* ============ AZULEJO MOTIF (signature element) ============ */
-/* A repeating hand-built tile line pattern, referencing Portuguese azulejos.
-   Used as texture band in the hero and as section dividers. */
-
-.azulejo-band{
-  position: absolute;
-  inset: 0;
-  opacity: 0.14;
-  background-image:
-    linear-gradient(45deg, var(--azulejo) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--azulejo) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--azulejo) 75%),
-    linear-gradient(-45deg, transparent 75%, var(--azulejo) 75%);
-  background-size: 60px 60px;
-  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
-  pointer-events: none;
-}
-
+/* ============ DIVISOR ============ */
 .divider-azulejo{
   height: 46px;
   background-image: repeating-linear-gradient(
@@ -128,7 +111,7 @@ a{ color: inherit; }
 .nav-inner{
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 0.55rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,7 +121,7 @@ a{ color: inherit; }
   align-items: center;
 }
 .nav-logo{
-  height: 36px;
+  height: 46px;
   width: auto;
   display: block;
 }
@@ -187,7 +170,14 @@ a{ color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, var(--azul-claro) 0%, var(--cream) 60%);
+  /* Lavagem suave nas cores do casamento: azul bebé, um rosado do bordeaux,
+     um toque de verde-oliva e creme de base. Sem padrões. */
+  background:
+    radial-gradient(ellipse 65% 50% at 12% 4%, rgba(189,221,246,0.95) 0%, rgba(189,221,246,0) 70%),
+    radial-gradient(ellipse 55% 45% at 92% 12%, rgba(79,36,45,0.13) 0%, rgba(79,36,45,0) 70%),
+    radial-gradient(ellipse 70% 40% at 50% 104%, rgba(117,124,44,0.16) 0%, rgba(117,124,44,0) 72%),
+    radial-gradient(ellipse 45% 35% at 4% 96%, rgba(189,221,246,0.65) 0%, rgba(189,221,246,0) 70%),
+    linear-gradient(180deg, #FBF8F5 0%, var(--cream) 100%);
   overflow: hidden;
   padding-top: 4rem;
 }
@@ -199,10 +189,10 @@ a{ color: inherit; }
   padding: 2rem 1.5rem;
 }
 .hero-logo{
-  width: min(150px, 40vw);
+  width: min(190px, 50vw);
   height: auto;
   display: block;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.4rem;
 }
 
 .hero-photo{
@@ -428,6 +418,44 @@ a{ color: inherit; }
 /* ============ LOCAL ============ */
 .local{ background: var(--wine); }
 .local .section-lead{ color: var(--gold-soft); }
+.local-tabs{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.local-tab{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  text-align: left;
+  font: inherit;
+  color: var(--cream-soft);
+  background: transparent;
+  border: 1px solid rgba(248,251,253,0.3);
+  border-radius: var(--radius);
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.local-tab:hover{ border-color: rgba(248,251,253,0.7); }
+.local-tab:focus-visible{ outline: 2px solid var(--azul-claro); outline-offset: 3px; }
+.local-tab-nome{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+.local-tab-nota{
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+.local-tab[aria-selected="true"]{
+  background: var(--cream-soft);
+  color: var(--wine);
+  border-color: var(--cream-soft);
+}
+.local-tab[aria-selected="true"] .local-tab-nota{ opacity: 0.8; color: var(--azulejo-deep); }
 .map-frame{
   border: 1px solid rgba(248,251,253,0.25);
   border-radius: var(--radius);
@@ -460,6 +488,7 @@ a{ color: inherit; }
   padding-bottom: 2px;
 }
 .map-link:hover{ border-bottom-color: var(--cream-soft); }
+.map-link[hidden]{ display: none; }
 
 /* ============ RSVP ============ */
 .rsvp{ background: var(--cream-soft); }
@@ -507,13 +536,13 @@ a{ color: inherit; }
   margin-bottom: 0.4rem;
 }
 .footer-logo{
-  width: 100px;
+  width: 112px;
   height: auto;
   display: block;
-  margin: 0 auto 1rem;
-  background: var(--cream-soft);
+  margin: 0 auto 1.4rem;
+  background: #FBF8F5;
   border-radius: 999px;
-  padding: 0.5rem;
+  padding: 1rem 0.8rem;
 }
 
 .footer-date{
@@ -562,5 +591,6 @@ a{ color: inherit; }
   .nav-toggle{ display: flex; }
 
   .contact-grid{ grid-template-columns: 1fr; }
+  .local-tabs{ grid-template-columns: 1fr; }
   .schedule-item{ grid-template-columns: 1fr; gap: 0.4rem; }
 }

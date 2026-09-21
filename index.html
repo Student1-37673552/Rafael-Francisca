@@ -31,7 +31,6 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="azulejo-band" aria-hidden="true"></div>
   <div class="hero-inner">
     <img src="assets/logo-completo.png" alt="Francisca &amp; Rafael" class="hero-logo">
     <div class="hero-photo"><img src="assets/aroeira.jpeg" alt="Francisca e Rafael"></div>
@@ -66,7 +65,6 @@
       <div class="photo-placeholder"><img src="assets/praia.jpeg" alt="Nós na praia"></div>
       <div class="photo-placeholder"><img src="assets/aurora.jpeg" alt="Nós e a Aurora"></div>
       <div class="photo-placeholder photo-placeholder--tall"><img src="assets/putos.jpeg" alt="Nós"></div>
-      <div class="photo-placeholder"><img src="assets/barco.jpeg" alt="Nós no Rio Tejo"></div>
       <div class="photo-placeholder"><img src="assets/concerto.jpeg" alt="Nós num concerto"></div>
       <div class="photo-placeholder"><img src="assets/oktoberfest.jpeg" alt="Nós no Oktoberfest"></div>
       <div class="photo-placeholder"><img src="assets/serradaestrela.jpeg" alt="Nós na Serra da estrela"></div>
@@ -88,14 +86,14 @@
         <span class="schedule-time">11:30</span>
         <div class="schedule-body">
           <h3>Cerimónia</h3>
-          <p>Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580. <a href="https://www.google.com/maps/search/?api=1&amp;query=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca" target="_blank" rel="noopener">Ver no mapa</a></p>
+          <p>Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580. <a href="#local" data-local-link="igreja">Ver no mapa</a></p>
         </div>
       </div>
       <div class="schedule-item">
         <span class="schedule-time">14:00</span>
         <div class="schedule-body">
           <h3>Copo de água</h3>
-          <p>Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer. Um brinde para começar e tempo para os reencontros.</p>
+          <p>Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer. Um brinde para começar e tempo para os reencontros. <a href="#local" data-local-link="quinta">Ver no mapa</a></p>
         </div>
       </div>
       <div class="schedule-item">
@@ -156,19 +154,34 @@
   <div class="section-inner">
     <p class="eyebrow">Capítulo quatro</p>
     <h2 class="section-title section-title--light">Como Chegar</h2>
-    <div class="map-frame">
-      <iframe
-        title="Mapa da Quinta da Bichinha, Ventosa, Alenquer"
-        src="https://www.google.com/maps?q=Quinta+da+Bichinha,+Vila+Ch%C3%A3,+2580-413+Ventosa,+Alenquer&amp;output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen></iframe>
+    <p class="section-lead">Escolhe o local para ver o mapa e abrir o caminho no teu telemóvel.</p>
+
+    <div class="local-tabs" role="tablist" aria-label="Escolher o local">
+      <button class="local-tab" role="tab" id="tab-igreja" data-local="igreja" aria-selected="true" aria-controls="painel-local" type="button">
+        <span class="local-tab-nome">Basílica de Santa Quitéria de Meca</span>
+        <span class="local-tab-nota">Cerimónia</span>
+      </button>
+      <button class="local-tab" role="tab" id="tab-quinta" data-local="quinta" aria-selected="false" aria-controls="painel-local" type="button" tabindex="-1">
+        <span class="local-tab-nome">Quinta da Bichinha</span>
+        <span class="local-tab-nota">Copo de água, jantar e festa</span>
+      </button>
     </div>
-    <p class="local-morada">Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer</p>
-    <div class="map-links">
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Quinta+da+Bichinha+Vila+Ch%C3%A3+2580-413+Ventosa+Alenquer" target="_blank" rel="noopener">Abrir a Quinta no Google Maps</a>
-      <a class="map-link" href="https://www.quintadabichinha.pt/localizacao" target="_blank" rel="noopener">Como chegar (site da Quinta)</a>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca" target="_blank" rel="noopener">Abrir a Basílica no Google Maps</a>
+
+    <div class="local-painel" id="painel-local" role="tabpanel" aria-labelledby="tab-igreja">
+      <div class="map-frame">
+        <iframe
+          id="mapaLocal"
+          title="Mapa da Basílica de Santa Quitéria de Meca"
+          src="https://www.google.com/maps?q=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca,+Largo+de+Santa+Quit%C3%A9ria,+Meca,+2580&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+      <p class="local-morada" id="localMorada">Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580</p>
+      <div class="map-links">
+        <a class="map-link" id="linkAbrir" href="https://www.google.com/maps/search/?api=1&amp;query=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="map-link" id="linkExtra" href="https://www.quintadabichinha.pt/localizacao" target="_blank" rel="noopener" hidden>Como chegar (site da Quinta)</a>
+      </div>
     </div>
   </div>
 </section>
@@ -196,7 +209,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <img src="assets/logo-completo.png" alt="Francisca &amp; Rafael" class="footer-logo">
+  <img src="assets/logo-medalhao.png" alt="Francisca &amp; Rafael" class="footer-logo">
   <p class="footer-date">30 de Outubro de 2027</p>
   <p class="footer-note">Feito com carinho para o nosso dia.</p>
 </footer>

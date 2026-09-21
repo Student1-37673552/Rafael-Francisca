@@ -9,16 +9,16 @@ Para ver alterações em tempo real, abre `index.html` no browser ou usa a exten
 ├── index.html      → todo o conteúdo e secções
 ├── css/styles.css  → cores, tipografia e layout
 ├── js/script.js    → contador para o dia, menu mobile e efeito de aparecer ao fazer scroll
-└── assets/         → logótipos e fotografias
+└── assets/         → logótipos (logo-completo.png e logo-medalhao.png) e fotografias
 ```
 
 ## Secções (por ordem)
 
-1. **Topo** — monograma, foto do casal, nomes, data e contador
+1. **Topo** — logótipo, foto do casal, nomes, data e contador, sobre um fundo suave nas cores do casamento
 2. **Em Fotografias** — galeria
 3. **O Grande Dia** — programa
 4. **Informação Prática** — dress code, estacionamento, alojamento, transporte, contactos
-5. **Como Chegar** — mapa da Quinta da Bichinha (Google Maps) e ligações para a Basílica e para o site da Quinta
+5. **Como Chegar** — dois separadores, Basílica (cerimónia) e Quinta da Bichinha (copo de água, jantar e festa), cada um com o seu mapa, morada e ligações
 6. **Confirmar Presença** — as confirmações são feitas por chamada para a Francisca ou para o Rafael
 
 Não há formulário de RSVP nem ligação a Google Sheets: quem quiser confirmar liga a um dos noivos.
@@ -35,21 +35,32 @@ Se a hora da cerimónia mudar, atualiza também `DATA_CASAMENTO` em `js/script.j
 
 Em "Confirmar Presença" os números da Francisca e do Rafael são ligações de chamada (`<a href="tel:+351…">`). Em telemóvel, tocar no número abre logo a chamada. Se mudarem, edita o `href` e o texto visível nos dois cartões.
 
+### Logótipo
+
+O logótipo vem de `novo_logo.jpeg` e foi convertido em duas imagens com fundo transparente, para assentar bem em qualquer cor:
+
+- `assets/logo-completo.png` — moldura, monograma e nomes; usado no topo.
+- `assets/logo-medalhao.png` — só a moldura com o monograma; usado no menu e no rodapé, onde o texto ficaria ilegível.
+
+Para trocar o logótipo, substitui estes dois ficheiros mantendo os nomes (PNG com fundo transparente).
+
 ### Foto do casal
 
-No topo há um arco reservado para a foto. Para a pôr, guarda a imagem em `assets/` e troca o bloco `hero-photo--vazio` por:
+No topo, dentro do arco, está `assets/aroeira.jpeg`. Para trocar, muda o `src` da imagem no bloco `hero-photo` do `index.html`.
 
-```html
-<div class="hero-photo"><img src="assets/nome-da-foto.jpg" alt="Francisca e Rafael"></div>
-```
+### Fundo do topo
+
+O fundo do topo é uma lavagem suave de azul bebé, um rosado do bordeaux e um toque de verde-oliva sobre creme, definida em `.hero` no `css/styles.css`. Não tem padrões.
 
 ### Galeria
 
 Cada foto é um bloco `.photo-placeholder` com uma `<img>` dentro. Para trocar ou juntar fotos, edita ou copia esses blocos em `index.html`.
 
-### Mapa
+### Como Chegar (mapas)
 
-O mapa usa a morada da Quinta da Bichinha (Vila Chã, 2580-413 Ventosa, Alenquer). Se quiseres um ponto mais exato, abre o local no Google Maps, escolhe *Partilhar → Incorporar um mapa* e substitui o `src` do `<iframe>`.
+Os dois locais estão no bloco `LOCAIS` no início da secção final de `js/script.js`: morada, endereço do mapa incorporado, ligação "Abrir no Google Maps" e, na Quinta, a ligação para o site da Quinta.
+Para acertar um ponto no mapa, abre o local no Google Maps, escolhe *Partilhar → Incorporar um mapa* e troca o endereço `mapa` desse local. O local que aparece à partida é o que tem `aria-selected="true"` no `index.html`, e a moldura do mapa também começa com esse `src`, por isso muda os dois em conjunto se quiseres outro local à partida.
+As ligações "Ver no mapa" no programa (`data-local-link`) abrem o local certo.
 
 ### Alojamento
 
