@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Francisca &amp; Rafael — 24 de Outubro de 2027</title>
+<title>Francisca &amp; Rafael — 30 de Outubro de 2027</title>
 <meta name="description" content="Tudo o que precisas de saber sobre o nosso casamento.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
   <div class="nav-inner">
     <a class="nav-brand" href="#topo"><img src="assets/logo-medalhao.png" alt="Francisca &amp; Rafael" class="nav-logo"></a>
     <nav class="nav-links">
-      <a href="#historia">A Nossa História</a>
       <a href="#galeria">Fotografias</a>
       <a href="#dia">O Grande Dia</a>
       <a href="#info">Informação Prática</a>
@@ -35,13 +34,19 @@
   <div class="azulejo-band" aria-hidden="true"></div>
   <div class="hero-inner">
     <img src="assets/logo-completo.png" alt="Francisca &amp; Rafael" class="hero-logo">
-    <div class="hero-photo" aria-hidden="true">
-      <span>📷 foto do casal</span>
+    <!-- Para pôr a foto real: troca este bloco por
+         <div class="hero-photo"><img src="assets/nome-da-foto.jpg" alt="Francisca e Rafael"></div> -->
+    <div class="hero-photo hero-photo--vazio" role="img" aria-label="Espaço reservado para a foto do casal">
+      <svg class="hero-photo-icone" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <path d="M6 14h7l3-4h12l3 4h7v20H6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        <circle cx="22" cy="23" r="6" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <span class="hero-photo-legenda">a nossa foto vai aqui</span>
     </div>
     <p class="eyebrow">Vamos casar</p>
     <h1 class="hero-names">Francisca <span class="amp">&amp;</span> Rafael</h1>
-    <p class="hero-date">24 <span class="dot">·</span> 10 <span class="dot">·</span> 2027</p>
-    <p class="hero-sub">[PLACEHOLDER: local da cerimónia, ex. "Igreja de Santo António, Loures"]</p>
+    <p class="hero-date">30 <span class="dot">·</span> 10 <span class="dot">·</span> 2027</p>
+    <p class="hero-sub">Basílica de Santa Quitéria de Meca <span class="dot">·</span> Quinta da Bichinha, Alenquer</p>
 
     <div class="countdown" id="countdown" aria-live="polite">
       <div class="countdown-item"><span class="num" id="cd-dias">000</span><span class="label">dias</span></div>
@@ -50,57 +55,17 @@
       <div class="countdown-item"><span class="num" id="cd-seg">00</span><span class="label">seg</span></div>
     </div>
 
-    <a href="#historia" class="scroll-cue" aria-label="Descer para a nossa história">
-      <span>a nossa história</span>
+    <a href="#galeria" class="scroll-cue" aria-label="Descer para as fotografias">
+      <span>fotografias</span>
       <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v19M1 14l6 6 6-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ============ HISTÓRIA ============ -->
-<section class="historia" id="historia">
-  <div class="section-inner">
-    <p class="eyebrow eyebrow--dark">Capítulo um</p>
-    <h2 class="section-title">A Nossa História</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-mark">1</div>
-        <div class="timeline-content">
-          <h3>Como nos conhecemos</h3>
-          <p>[PLACEHOLDER: conta aqui como se conheceram — onde, quando, a primeira impressão. Um ou dois parágrafos bastam.]</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-mark">2</div>
-        <div class="timeline-content">
-          <h3>[PLACEHOLDER: um momento marcante — primeira viagem, mudança de casa, etc.]</h3>
-          <p>[PLACEHOLDER: descrição breve deste momento e porque foi importante para vocês.]</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-mark">3</div>
-        <div class="timeline-content">
-          <h3>O pedido</h3>
-          <p>[PLACEHOLDER: como foi o pedido de casamento — onde, quando, quem perguntou.]</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-mark">4</div>
-        <div class="timeline-content">
-          <h3>Hoje</h3>
-          <p>[PLACEHOLDER: uma frase final sobre o que sentem em relação ao dia que se aproxima.]</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="divider-azulejo" aria-hidden="true"></div>
-</section>
-
 <!-- ============ GALERIA ============ -->
 <section class="galeria" id="galeria">
   <div class="section-inner">
-    <p class="eyebrow eyebrow--dark">Capítulo um e meio</p>
+    <p class="eyebrow eyebrow--dark">Capítulo um</p>
     <h2 class="section-title">Em Fotografias</h2>
     <p class="section-lead">Uma pequena mostra do que já vivemos — vai crescendo à medida que formos escolhendo as fotos.</p>
 
@@ -122,31 +87,31 @@
 
     <div class="schedule">
       <div class="schedule-item">
-        <span class="schedule-time">[15:30]</span>
+        <span class="schedule-time">11:30</span>
         <div class="schedule-body">
           <h3>Cerimónia</h3>
-          <p>[PLACEHOLDER: nome e morada do local da cerimónia]</p>
+          <p>Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580. <a href="https://www.google.com/maps/search/?api=1&amp;query=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca" target="_blank" rel="noopener">Ver no mapa</a></p>
         </div>
       </div>
       <div class="schedule-item">
-        <span class="schedule-time">[17:00]</span>
+        <span class="schedule-time">14:00</span>
         <div class="schedule-body">
-          <h3>Cocktail de boas-vindas</h3>
-          <p>[PLACEHOLDER: local do cocktail, se diferente da cerimónia]</p>
+          <h3>Copo de água</h3>
+          <p>Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer. Um brinde para começar e tempo para os reencontros.</p>
         </div>
       </div>
       <div class="schedule-item">
-        <span class="schedule-time">[19:00]</span>
+        <span class="schedule-time" aria-hidden="true"></span>
         <div class="schedule-body">
           <h3>Jantar</h3>
-          <p>[PLACEHOLDER: local da receção / quinta / salão]</p>
+          <p>Quinta da Bichinha. Sentamo-nos todos à mesa, com fome e com histórias para contar.</p>
         </div>
       </div>
       <div class="schedule-item">
-        <span class="schedule-time">[22:00]</span>
+        <span class="schedule-time" aria-hidden="true"></span>
         <div class="schedule-body">
           <h3>Festa</h3>
-          <p>[PLACEHOLDER: até que horas, se há transporte de regresso]</p>
+          <p>A festa vai das 14h às 4h da manhã, por isso venham com energia para dançar. Para o regresso, vejam as opções em <a href="#info">Informação Prática</a>, no cartão Transporte.</p>
         </div>
       </div>
     </div>
@@ -162,27 +127,26 @@
     <div class="info-grid">
       <div class="info-card">
         <h3>Dress Code</h3>
-        <p>[PLACEHOLDER: ex. Traje de cerimónia / Evitar branco e tons de noiva]</p>
+        <p>Traje formal. Pedimos apenas que deixem o branco para a noiva.</p>
       </div>
       <div class="info-card">
         <h3>Estacionamento</h3>
-        <p>[PLACEHOLDER: onde estacionar junto ao local]</p>
+        <p>Tanto a Basílica como a Quinta têm estacionamento mesmo em frente. É só chegar, estacionar e entrar.</p>
       </div>
       <div class="info-card">
         <h3>Alojamento</h3>
-        <p>[PLACEHOLDER: sugestões de hotéis/alojamento para convidados de fora]</p>
+        <p>Para quem vem de mais longe: mesmo dentro da Quinta da Bichinha é possível reservar quarto para dormir. <a href="https://www.quintadabichinha.pt/reservas" target="_blank" rel="noopener">Ver reservas</a></p>
       </div>
-      <div class="info-card">
+      <div class="info-card info-card--larga">
         <h3>Transporte</h3>
-        <p>[PLACEHOLDER: se há autocarro organizado entre locais]</p>
-      </div>
-      <div class="info-card">
-        <h3>Lista de Presentes</h3>
-        <p>[PLACEHOLDER: informação sobre lista de presentes, se aplicável]</p>
+        <p>Na região de Lisboa existem vários serviços de deslocação para depois da celebração.</p>
+        <p><strong>Motorista.</strong> A pensar no conforto e na segurança de todos, a Star Drivers estará disponível durante todo o evento. O serviço pode ser feito no vosso próprio carro ou num serviço completo, com viatura e motorista. Para marcar ou saber preços, falem diretamente com o Tomás Estrela: <a href="tel:+351918018898">918 018 898</a>.</p>
+        <p><strong>Transfer.</strong> Para grupos maiores, há transfer em carrinhas com vários lugares entre os locais do casamento. Recomendamos a <a href="https://bedriven.pt/" target="_blank" rel="noopener">Bedriven</a> pelo custo e pela conveniência. Reservas e informações diretamente com o fornecedor.</p>
+        <p>Para mais informações, ou em caso de dúvida, é só melgar o noivo!</p>
       </div>
       <div class="info-card">
         <h3>Contactos</h3>
-        <p>[PLACEHOLDER: nome e contacto para dúvidas de última hora]</p>
+        <p>Dúvidas de última hora? Liguem a qualquer um de nós — os contactos estão em <a href="#rsvp">Confirmar Presença</a>.</p>
       </div>
     </div>
   </div>
@@ -194,55 +158,48 @@
   <div class="section-inner">
     <p class="eyebrow">Capítulo quatro</p>
     <h2 class="section-title section-title--light">Como Chegar</h2>
-    <div class="map-placeholder">
-      <p>[PLACEHOLDER: incorporar aqui um Google Maps embed com a morada do local da receção]</p>
+    <div class="map-frame">
+      <iframe
+        title="Mapa da Quinta da Bichinha, Ventosa, Alenquer"
+        src="https://www.google.com/maps?q=Quinta+da+Bichinha,+Vila+Ch%C3%A3,+2580-413+Ventosa,+Alenquer&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <p class="local-morada">Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer</p>
+    <div class="map-links">
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Quinta+da+Bichinha+Vila+Ch%C3%A3+2580-413+Ventosa+Alenquer" target="_blank" rel="noopener">Abrir a Quinta no Google Maps</a>
+      <a class="map-link" href="https://www.quintadabichinha.pt/localizacao" target="_blank" rel="noopener">Como chegar (site da Quinta)</a>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bas%C3%ADlica+de+Santa+Quit%C3%A9ria+de+Meca" target="_blank" rel="noopener">Abrir a Basílica no Google Maps</a>
     </div>
   </div>
 </section>
 
-<!-- ============ RSVP ============ -->
+<!-- ============ CONFIRMAR PRESENÇA ============ -->
 <section class="rsvp" id="rsvp">
   <div class="section-inner">
     <p class="eyebrow eyebrow--dark">Capítulo cinco</p>
     <h2 class="section-title">Confirmar Presença</h2>
-    <p class="section-lead section-lead--dark">Pedimos que confirmem até [PLACEHOLDER: data limite].</p>
+    <p class="section-lead">Pedimos que nos liguem a confirmar a vossa presença até 30 de agosto de 2027.</p>
 
-    <form class="rsvp-form" id="rsvpForm">
-      <div class="form-row">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" name="nome" required>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Francisca</h3>
+        <p class="contact-phone"><a href="tel:+351935092152">935 092 152</a></p>
       </div>
-      <div class="form-row">
-        <label for="presenca">Vais estar presente?</label>
-        <select id="presenca" name="presenca" required>
-          <option value="">Selecionar</option>
-          <option value="sim">Sim, vou!</option>
-          <option value="nao">Infelizmente não posso</option>
-        </select>
+      <div class="contact-card">
+        <h3>Rafael</h3>
+        <p class="contact-phone"><a href="tel:+351967146093">967 146 093</a></p>
       </div>
-      <div class="form-row">
-        <label for="acompanhantes">Número de acompanhantes</label>
-        <input type="number" id="acompanhantes" name="acompanhantes" min="0" value="0">
-      </div>
-      <div class="form-row">
-        <label for="restricoes">Restrições alimentares</label>
-        <input type="text" id="restricoes" name="restricoes" placeholder="Opcional">
-      </div>
-      <button type="submit" class="btn-submit">Enviar Confirmação</button>
-      <p class="form-note">[PLACEHOLDER: liga o URL do Google Apps Script em js/script.js — ver README]</p>
-    </form>
-
-    <div class="rsvp-success" id="rsvpSuccess" hidden>
-      <h3>Obrigado! 💌</h3>
-      <p>A tua confirmação foi registada. Já não vemos a hora de celebrar convosco!</p>
     </div>
+    <p class="form-note">Liguem a qualquer um de nós. Teremos todo o gosto em ouvir a vossa resposta!</p>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <img src="assets/logo-completo.png" alt="Francisca &amp; Rafael" class="footer-logo">
-  <p class="footer-date">24 de Outubro de 2027</p>
+  <p class="footer-date">30 de Outubro de 2027</p>
   <p class="footer-note">Feito com carinho para o nosso dia.</p>
 </footer>
 

@@ -1,86 +1,65 @@
-# Site do Casamento — Rafael & Francisca
+# Site do Casamento — Francisca & Rafael
 
-Esboço inicial do site. Estrutura simples, sem build tools — abre `index.html` diretamente no browser ou usa a extensão "Live Server" no VS Code para veres alterações em tempo real.
+Site estático (HTML, CSS e JavaScript simples), sem build tools, alojado no GitHub Pages.
+Para ver alterações em tempo real, abre `index.html` no browser ou usa a extensão "Live Server" no VS Code.
 
 ## Estrutura
 
 ```
-site-casamento/
-├── index.html        → todo o conteúdo e secções
-├── css/styles.css     → sistema de design (cores, tipografia, layout)
-├── js/script.js       → contador para o dia + menu mobile + RSVP (placeholder)
-└── assets/            → pasta vazia, para fotos quando as tiveres
+├── index.html      → todo o conteúdo e secções
+├── css/styles.css  → cores, tipografia e layout
+├── js/script.js    → contador para o dia, menu mobile e efeito de aparecer ao fazer scroll
+└── assets/         → logótipos e fotografias
 ```
 
-## Novidades desta versão
+## Secções (por ordem)
 
-- Nomes trocados: **Francisca & Rafael** em todo o site
-- Nova secção **"Em Fotografias"** com 6 placeholders para fotos (ver como adicionar fotos reais, abaixo)
-- Placeholder circular de foto no hero, por cima dos nomes
-- Efeitos: as secções e cartões aparecem com um suave fade-up ao fazer scroll; confetti dispara quando alguém confirma presença no RSVP
+1. **Topo** — monograma, foto do casal, nomes, data e contador
+2. **Em Fotografias** — galeria
+3. **O Grande Dia** — programa
+4. **Informação Prática** — dress code, estacionamento, alojamento, transporte, contactos
+5. **Como Chegar** — mapa da Quinta da Bichinha (Google Maps) e ligações para a Basílica e para o site da Quinta
+6. **Confirmar Presença** — as confirmações são feitas por chamada para a Francisca ou para o Rafael
 
-## Como funciona o RSVP — ligado à tua Google Sheet
+Não há formulário de RSVP nem ligação a Google Sheets: quem quiser confirmar liga a um dos noivos.
 
-O formulário está preparado para enviar cada confirmação como uma nova linha numa Google Sheet tua. Faltam só 4 passos (10 minutos):
+## Informação em falta
 
-### 1. Criar a Sheet
-Cria uma Google Sheet nova. Na primeira linha, mete os cabeçalhos: `Data | Nome | Presença | Acompanhantes | Restrições`
+Neste momento não há nada por preencher. Se acrescentares algo provisório, marca-o com `<mark class="falta">…</mark>` no `index.html`
+(aparece com um sublinhado tracejado e em itálico) e pesquisa depois por `class="falta"` para o encontrares. Quando estiver confirmado, apaga a etiqueta `<mark>` e deixa só o texto.
 
-### 2. Colar o script
-Abre **Extensões → Apps Script** dentro dessa Sheet, apaga o que lá estiver e cola o conteúdo do ficheiro `google-apps-script/Codigo.gs` (está nesta pasta). Guarda.
+A cerimónia aparece às 11:30 (a missa é na verdade às 12h, mas é a hora que damos aos convidados). O copo de água é às 14:00. O jantar não tem hora indicada, e a festa vai das 14h às 4h da manhã.
+Se a hora da cerimónia mudar, atualiza também `DATA_CASAMENTO` em `js/script.js`, que alimenta o contador.
 
-### 3. Publicar
-`Deploy → New deployment` → tipo **Web app** → *Execute as*: a tua conta, *Who has access*: **Anyone** → `Deploy`. Autoriza o acesso quando pedir (é normal aparecer o aviso "Google hasn't verified this app" — é um script teu, podes avançar em *Advanced → Go to [projeto] (unsafe)*).
+### Números de telefone
 
-### 4. Ligar ao site
-Copia o URL que o Google te dá no fim (algo como `https://script.google.com/macros/s/.../exec`) e cola-o em `js/script.js`, nesta linha:
+Em "Confirmar Presença" os números da Francisca e do Rafael são ligações de chamada (`<a href="tel:+351…">`). Em telemóvel, tocar no número abre logo a chamada. Se mudarem, edita o `href` e o texto visível nos dois cartões.
 
-```js
-const GOOGLE_SCRIPT_URL = "COLA_AQUI_O_TEU_URL_DO_APPS_SCRIPT";
+### Foto do casal
+
+No topo há um arco reservado para a foto. Para a pôr, guarda a imagem em `assets/` e troca o bloco `hero-photo--vazio` por:
+
+```html
+<div class="hero-photo"><img src="assets/nome-da-foto.jpg" alt="Francisca e Rafael"></div>
 ```
 
-Substitui o texto entre aspas pelo URL. Guarda, faz commit/push, e o formulário passa a escrever diretamente na tua Sheet — cada confirmação aparece como uma linha nova, em tempo real.
+### Galeria
 
-**Nota:** enquanto o `GOOGLE_SCRIPT_URL` não for substituído, o site mostra um aviso a lembrar que falta este passo, em vez de tentar enviar para o sítio errado.
+Cada foto é um bloco `.photo-placeholder` com uma `<img>` dentro. Para trocar ou juntar fotos, edita ou copia esses blocos em `index.html`.
 
-## Como adicionar fotos reais
+### Mapa
 
-Os placeholders (📷) na secção "Em Fotografias" e no hero são só para veres o layout. Para colocar fotos verdadeiras:
+O mapa usa a morada da Quinta da Bichinha (Vila Chã, 2580-413 Ventosa, Alenquer). Se quiseres um ponto mais exato, abre o local no Google Maps, escolhe *Partilhar → Incorporar um mapa* e substitui o `src` do `<iframe>`.
 
-1. Põe as imagens dentro da pasta `assets/` (ex. `assets/foto1.jpg`)
-2. No `index.html`, substitui cada `<div class="photo-placeholder">...</div>` por `<div class="photo-placeholder"><img src="assets/foto1.jpg" alt="descrição da foto"></div>`
-3. Diz-me quando tiveres as fotos escolhidas que eu faço esta troca toda de uma vez, incluindo o ajuste de CSS para as imagens ficarem bem enquadradas
+### Alojamento
 
-## O que já está feito
+O cartão de Alojamento indica que é possível reservar quarto dentro da Quinta da Bichinha e liga para `quintadabichinha.pt/reservas`.
 
-- Hero com contador em tempo real até 24/10/2027 às 15:30 (atualiza automaticamente quando mudares a data em `script.js`)
-- Secção "A Nossa História" com timeline de 4 momentos
-- Secção "O Grande Dia" com horário da cerimónia, cocktail, jantar e festa
-- Secção "Informação Prática" (dress code, estacionamento, alojamento, transporte, lista de presentes, contactos)
-- Secção "Como Chegar" com placeholder para mapa
-- Formulário de RSVP (ainda não envia dados para lado nenhum — ver abaixo)
-- Totalmente responsivo, com menu mobile
+## Publicar
 
-## Tudo o que tem `[PLACEHOLDER: ...]` precisa de ser substituído com informação real
+O site é servido pelo GitHub Pages. Depois de alterares os ficheiros, faz *commit* e *push* para o ramo principal; a atualização demora normalmente um ou dois minutos.
+O endereço aparece em *Settings → Pages* do repositório.
 
-Procura por `[PLACEHOLDER` no `index.html` — são todos os pontos que faltam preencher: história, morada da cerimónia e receção, horários exatos, dress code, alojamento, etc.
+## Cores
 
-## Próximos passos (quando tiveres a info)
-
-1. Substituir todos os placeholders por conteúdo real
-2. Adicionar fotos vossas na pasta `assets/` e no hero/história
-3. Ligar o formulário de RSVP a um destino real — as opções mais simples sem servidor próprio:
-   - **Netlify Forms** (grátis, funciona automaticamente se fizeres deploy no Netlify)
-   - **Formspree** (grátis até um limite, funciona em qualquer hosting)
-   - **Google Sheets via Google Apps Script** (mais trabalho, mas guarda tudo numa sheet)
-4. Adicionar o Google Maps embed real na secção "Como Chegar"
-5. Deploy:
-   - **Netlify**: arrastar a pasta para [app.netlify.com/drop](https://app.netlify.com/drop) — mais simples possível
-   - **GitHub Pages**: criar repo, fazer push, ativar Pages nas definições
-   - Depois, se quiserem, comprar um domínio (ex. `rafaelefrancisca.pt`) e apontá-lo para o hosting
-
-## Sistema de design
-
-- **Cores**: vinho `#6B2737`, azul-azulejo `#2C5F6F`, dourado `#C9973F`, pergaminho `#F5EDE0`
-- **Tipografia**: Fraunces (títulos) + Karla (texto corrido) — via Google Fonts
-- **Motivo assinatura**: padrão inspirado em azulejos portugueses, usado como textura no hero e como divisores entre secções
+Definidas no topo de `css/styles.css`: bordeaux, azul ardósia, verde oliva e azul bebé.
