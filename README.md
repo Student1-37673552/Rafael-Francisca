@@ -17,7 +17,7 @@ Para ver alterações em tempo real, abre `index.html` no browser ou usa a exten
 1. **Topo** — medalhão, foto do casal em arco, nomes, data e contador, dentro de uma moldura de linha dupla, sobre manchas de aguarela como no convite
 2. **Em Fotografias** — galeria
 3. **O Grande Dia** — programa em linha do tempo, dentro de um cartão em arco sobre azul, como o cartão "O nosso dia"
-4. **Informação Prática** — dress code, estacionamento, alojamento, transporte, contactos
+4. **Informação Prática** — dress code, estacionamento e contactos lado a lado; transporte a toda a largura por baixo
 5. **Como Chegar** — dois separadores, Basílica (cerimónia) e Quinta da Bichinha (copo de água, jantar e festa), cada um com o seu mapa, morada e ligações
 6. **Confirmar Presença** — cartão "Contamos convosco", igual ao do convite: as confirmações são feitas por chamada para a Francisca ou para o Rafael, até 31 de julho de 2027
 7. **Rodapé** — faixa verde-oliva com os nomes e o medalhão, como a do envelope
@@ -62,10 +62,6 @@ Cada foto é um bloco `.photo-placeholder` com uma `<img>` dentro. Para trocar o
 Os dois locais estão no bloco `LOCAIS` no início da secção final de `js/script.js`: morada, endereço do mapa incorporado, ligação "Abrir no Google Maps" e, na Quinta, a ligação para o site da Quinta.
 Para acertar um ponto no mapa, abre o local no Google Maps, escolhe *Partilhar → Incorporar um mapa* e troca o endereço `mapa` desse local. O local que aparece à partida é o que tem `aria-selected="true"` no `index.html`, e a moldura do mapa também começa com esse `src`, por isso muda os dois em conjunto se quiseres outro local à partida.
 As ligações "Ver no mapa" no programa (`data-local-link`) abrem o local certo.
-
-### Alojamento
-
-O cartão de Alojamento indica que é possível reservar quarto dentro da Quinta da Bichinha e liga para `quintadabichinha.pt/reservas`.
 
 ## Publicar
 

@@ -53,6 +53,7 @@ h1, h2, h3{
 p{ margin: 0; }
 
 a{ color: inherit; }
+a[href^="tel:"]{ white-space: nowrap; } /* números de telefone nunca partidos */
 
 /* Maiúsculas espaçadas, como "JUNTOS COM AS NOSSAS FAMÍLIAS" */
 .eyebrow{
@@ -449,10 +450,15 @@ a{ color: inherit; }
 
 /* ============ INFO PRÁTICA ============ */
 .info{ background: var(--creme); }
+/* Uma coluna no telemóvel; três a partir de 860px, com o cartão largo
+   (Transporte) a ocupar a linha toda por baixo. */
 .info-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+}
+@media (min-width: 860px){
+  .info-grid{ grid-template-columns: repeat(3, 1fr); }
 }
 .info-card{
   background: var(--creme-claro);
@@ -478,9 +484,7 @@ a{ color: inherit; }
 .info-card a{ color: var(--bordeaux); }
 .info-card strong{ color: var(--tinta); font-weight: 600; }
 .info-card p + p{ margin-top: 0.8rem; }
-@media (min-width: 780px){
-  .info-card--larga{ grid-column: span 2; }
-}
+.info-card--larga{ grid-column: 1 / -1; }
 
 /* ============ LOCAL ============ */
 .local{ background: var(--bordeaux); }
