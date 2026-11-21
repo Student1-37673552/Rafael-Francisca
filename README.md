@@ -1,6 +1,6 @@
 # Site do Casamento — Francisca & Rafael
 
-Site estático (HTML, CSS e JavaScript simples), sem build tools, alojado no GitHub Pages.
+Site estático (HTML, CSS e JavaScript simples), sem build tools, alojado no Netlify.
 Para ver alterações em tempo real, abre `index.html` no browser ou usa a extensão "Live Server" no VS Code.
 
 ## Estrutura
@@ -68,8 +68,12 @@ O cartão de Alojamento indica que é possível reservar quarto dentro da Quinta
 
 ## Publicar
 
-O site é servido pelo GitHub Pages. Depois de alterares os ficheiros, faz *commit* e *push* para o ramo principal; a atualização demora normalmente um ou dois minutos.
-O endereço aparece em *Settings → Pages* do repositório.
+O site é servido pelo Netlify, ligado a este repositório do GitHub. Depois de alterares os ficheiros, faz *commit* e *push* para o ramo `main`; o Netlify publica sozinho, normalmente em um ou dois minutos.
+
+- Configuração no Netlify: *build command* vazio e *publish directory* `.` (a raiz do repositório).
+- O endereço e o nome do site mudam-se em *Site configuration → Change site name*, no painel do Netlify.
+- Em *Deploys* vês o histórico de publicações e podes voltar a uma versão anterior com um clique.
+- O GitHub Pages deixou de ser usado e deve ficar desligado em *Settings → Pages* do repositório.
 
 ## Cores
 
