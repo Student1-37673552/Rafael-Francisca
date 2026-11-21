@@ -53,6 +53,15 @@ No topo, dentro do arco, está `assets/aroeira.jpeg`. Para trocar, muda o `src` 
 
 O fundo do topo imita as manchas de aguarela do convite (azul acinzentado, sálvia e rosado sobre creme) e tem uma moldura de linha dupla em bordeaux. Está definido em `.hero` no `css/styles.css`.
 
+### Flores
+
+As flores foram recortadas da página 2 do PDF dos convites (que só tem as páginas como imagens achatadas, sem as flores em separado):
+
+- `assets/flor-amor-perfeito.webp` — amor-perfeito com botão; no canto superior direito do topo.
+- `assets/flor-ramo.webp` — ramo de folhas; no canto inferior esquerdo do topo e, espelhado, no canto de "Confirmar Presença".
+
+São decorativas (`class="flor"` no `index.html`, posições em `.flor--…` no `css/styles.css`). Como o recorte foi feito sobre o papel creme, ficam bem em fundos claros; em fundos escuros notar-se-ia um contorno claro. Se um dia houver os PNG originais com fundo transparente, basta substituir estes ficheiros.
+
 ### Galeria
 
 Cada foto é um bloco `.photo-placeholder` com uma `<img>` dentro. Para trocar ou juntar fotos, edita ou copia esses blocos em `index.html`.

@@ -215,6 +215,24 @@ a[href^="tel:"]{ white-space: nowrap; } /* números de telefone nunca partidos *
 .hero::before{ top: 80px; right: 18px; bottom: 18px; left: 18px; }
 .hero::after{ top: 86px; right: 24px; bottom: 24px; left: 24px; opacity: 0.6; }
 
+/* ============ FLORES (recortadas do convite) ============
+   Só decorativas: ficam por cima da moldura, mas nunca recebem cliques. */
+.flor{
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+.flor--hero-topo{ top: 64px; right: 0; width: clamp(120px, 24vw, 330px); }
+.flor--hero-baixo{ bottom: 0; left: 0; width: clamp(80px, 12vw, 170px); }
+.flor--rsvp{
+  top: 0; right: 0;
+  width: clamp(80px, 11vw, 150px);
+  transform: scaleX(-1); /* ramo espelhado, a sair do canto direito */
+}
+
 .hero-inner{
   position: relative;
   z-index: 1;
@@ -570,7 +588,7 @@ a[href^="tel:"]{ white-space: nowrap; } /* números de telefone nunca partidos *
 .map-link[hidden]{ display: none; }
 
 /* ============ RSVP (cartão "Contamos convosco") ============ */
-.rsvp{ background: var(--creme); }
+.rsvp{ background: var(--creme); position: relative; overflow: hidden; }
 .rsvp-card{
   display: grid;
   grid-template-columns: 2fr 3fr;
