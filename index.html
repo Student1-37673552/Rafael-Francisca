@@ -3,14 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Francisca &amp; Rafael — 30 de Outubro de 2027</title>
-<meta name="description" content="Tudo o que precisas de saber sobre o nosso casamento.">
+<title>Francisca &amp; Rafael — 30 de outubro de 2027</title>
+<meta name="description" content="Tudo o que precisam de saber sobre o nosso casamento.">
+<link rel="canonical" href="https://franciscarafael.netlify.app/">
+
+<!-- Pré-visualização ao partilhar o link (WhatsApp, Facebook, Messenger, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://franciscarafael.netlify.app/">
+<meta property="og:site_name" content="Francisca &amp; Rafael">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:title" content="Francisca &amp; Rafael — 30 de outubro de 2027">
+<meta property="og:description" content="Vamos casar! Cerimónia na Basílica de Santa Quitéria, em Meca, e festa na Quinta da Bichinha, em Alenquer. Tudo o que precisam de saber está aqui.">
+<meta property="og:image" content="https://franciscarafael.netlify.app/assets/partilha.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Francisca e Rafael, 30 de outubro de 2027">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="assets/logo-medalhao.png">
+<meta name="theme-color" content="#6E1F2A">
 </head>
 <body>
+
+<!-- Estrela de quatro pontas usada nos divisores (linha · estrela · linha) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="estrela" viewBox="0 0 14 14"><path d="M7 0C7.6 4.6 9.4 6.4 14 7 9.4 7.6 7.6 9.4 7 14 6.4 9.4 4.6 7.6 0 7 4.6 6.4 6.4 4.6 7 0Z" fill="currentColor"/></symbol>
+</svg>
 
 <!-- ============ NAV ============ -->
 <header class="site-nav" id="topo">
@@ -20,7 +41,7 @@
       <a href="#galeria">Fotografias</a>
       <a href="#dia">O Grande Dia</a>
       <a href="#info">Informação Prática</a>
-      <a href="#local">Local</a>
+      <a href="#local">Como Chegar</a>
       <a href="#rsvp" class="nav-cta">Confirmar Presença</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -32,14 +53,15 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="assets/logo-completo.png" alt="Francisca &amp; Rafael" class="hero-logo">
+    <img src="assets/logo-medalhao.png" alt="" class="hero-logo">
     <div class="hero-photo"><img src="assets/aroeira.jpeg" alt="Francisca e Rafael"></div>
     <p class="eyebrow">Vamos casar</p>
-    <h1 class="hero-names">Francisca <span class="amp">&amp;</span> Rafael</h1>
-    <p class="hero-date">30 <span class="dot">·</span> 10 <span class="dot">·</span> 2027</p>
-    <p class="hero-sub">Basílica de Santa Quitéria de Meca <span class="dot">·</span> Quinta da Bichinha, Alenquer</p>
+    <h1 class="hero-names"><span class="nome">Francisca</span> <span class="e">e</span> <span class="nome">Rafael</span></h1>
+    <div class="ornamento" aria-hidden="true"><svg><use href="#estrela"/></svg></div>
+    <p class="hero-date">Sábado, 30 de outubro de 2027</p>
+    <p class="hero-sub"><span class="sem-quebra">Basílica de Santa Quitéria, Meca</span> <span class="dot">·</span> <span class="sem-quebra">Quinta da Bichinha, Alenquer</span></p>
 
-    <div class="countdown" id="countdown" aria-live="polite">
+    <div class="countdown" id="countdown">
       <div class="countdown-item"><span class="num" id="cd-dias">000</span><span class="label">dias</span></div>
       <div class="countdown-item"><span class="num" id="cd-horas">00</span><span class="label">horas</span></div>
       <div class="countdown-item"><span class="num" id="cd-min">00</span><span class="label">min</span></div>
@@ -56,20 +78,23 @@
 <!-- ============ GALERIA ============ -->
 <section class="galeria" id="galeria">
   <div class="section-inner">
-    <p class="eyebrow eyebrow--dark">Capítulo um</p>
-    <h2 class="section-title">Em Fotografias</h2>
-    <p class="section-lead">Uma pequena mostra do que já vivemos — vai crescendo à medida que formos escolhendo as fotos.</p>
+    <header class="section-head">
+      <p class="eyebrow">Capítulo um</p>
+      <h2 class="section-title">Em Fotografias</h2>
+      <div class="ornamento" aria-hidden="true"><svg><use href="#estrela"/></svg></div>
+      <p class="section-lead">Uma pequena mostra do que já vivemos — vai crescendo à medida que formos escolhendo as fotos.</p>
+    </header>
 
     <div class="photo-grid">
-      <div class="photo-placeholder photo-placeholder--tall"><img src="assets/Floresta_noruega.jpeg" alt="Nós à caça de auroras bureais"></div>
-      <div class="photo-placeholder"><img src="assets/praia.jpeg" alt="Nós na praia"></div>
-      <div class="photo-placeholder"><img src="assets/aurora.jpeg" alt="Nós e a Aurora"></div>
-      <div class="photo-placeholder photo-placeholder--tall"><img src="assets/putos.jpeg" alt="Nós"></div>
-      <div class="photo-placeholder"><img src="assets/concerto.jpeg" alt="Nós num concerto"></div>
-      <div class="photo-placeholder"><img src="assets/oktoberfest.jpeg" alt="Nós no Oktoberfest"></div>
-      <div class="photo-placeholder"><img src="assets/serradaestrela.jpeg" alt="Nós na Serra da estrela"></div>
-      <div class="photo-placeholder"><img src="assets/Fanhoes.jpeg" alt="Nós em Fanhões"></div>
-      <div class="photo-placeholder"><img src="assets/amsterdam.jpeg" alt="Nós em Amsterdão"></div>
+      <div class="photo-placeholder photo-placeholder--tall"><img loading="lazy" src="assets/Floresta_noruega.jpeg" alt="Nós à caça de auroras boreais"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/praia.jpeg" alt="Nós na praia"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/aurora.jpeg" alt="Nós e a Aurora"></div>
+      <div class="photo-placeholder photo-placeholder--tall"><img loading="lazy" src="assets/putos.jpeg" alt="Nós"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/concerto.jpeg" alt="Nós num concerto"></div>
+      <div class="photo-placeholder photo-placeholder--tall"><img loading="lazy" src="assets/oktoberfest.jpeg" alt="Nós no Oktoberfest"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/serradaestrela.jpeg" alt="Nós na Serra da Estrela"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/Fanhoes.jpeg" alt="Nós em Fanhões"></div>
+      <div class="photo-placeholder"><img loading="lazy" src="assets/amsterdam.jpeg" alt="Nós em Amsterdão"></div>
     </div>
   </div>
 </section>
@@ -77,37 +102,43 @@
 <!-- ============ O GRANDE DIA ============ -->
 <section class="dia" id="dia">
   <div class="section-inner">
-    <p class="eyebrow">Capítulo dois</p>
-    <h2 class="section-title section-title--light">O Grande Dia</h2>
-    <p class="section-lead">Um roteiro para não perderes nada — horários sujeitos a pequenos ajustes.</p>
+    <div class="arco">
+      <header class="section-head">
+        <img src="assets/logo-medalhao.png" alt="" class="arco-logo">
+        <p class="eyebrow">Capítulo dois</p>
+        <h2 class="section-title">O Grande Dia</h2>
+        <p class="eyebrow">Sábado · 30 · 10 · 2027</p>
+        <p class="section-lead">Um roteiro para não perderem nada — horários sujeitos a pequenos ajustes.</p>
+      </header>
 
-    <div class="schedule">
-      <div class="schedule-item">
-        <span class="schedule-time">11:30</span>
-        <div class="schedule-body">
-          <h3>Cerimónia</h3>
-          <p>Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580. <a href="#local" data-local-link="igreja">Ver no mapa</a></p>
+      <div class="schedule">
+        <div class="schedule-item">
+          <span class="schedule-time">11h30</span>
+          <div class="schedule-body">
+            <h3>Cerimónia</h3>
+            <p>Basílica de Santa Quitéria de Meca, Largo de Santa Quitéria, Meca, 2580. <a href="#local" data-local-link="igreja">Ver no mapa</a></p>
+          </div>
         </div>
-      </div>
-      <div class="schedule-item">
-        <span class="schedule-time">14:00</span>
-        <div class="schedule-body">
-          <h3>Copo de água</h3>
-          <p>Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer. Um brinde para começar e tempo para os reencontros. <a href="#local" data-local-link="quinta">Ver no mapa</a></p>
+        <div class="schedule-item">
+          <span class="schedule-time">14h00</span>
+          <div class="schedule-body">
+            <h3>Copo de água</h3>
+            <p>Quinta da Bichinha, Vila Chã, 2580-413 Ventosa, Alenquer. Um brinde para começar e tempo para os reencontros. <a href="#local" data-local-link="quinta">Ver no mapa</a></p>
+          </div>
         </div>
-      </div>
-      <div class="schedule-item">
-        <span class="schedule-time" aria-hidden="true"></span>
-        <div class="schedule-body">
-          <h3>Jantar</h3>
-          <p>Quinta da Bichinha. Sentamo-nos todos à mesa, com fome e com histórias para contar.</p>
+        <div class="schedule-item">
+          <span class="schedule-time" aria-hidden="true"></span>
+          <div class="schedule-body">
+            <h3>Jantar</h3>
+            <p>Quinta da Bichinha. Sentamo-nos todos à mesa, com fome e com histórias para contar.</p>
+          </div>
         </div>
-      </div>
-      <div class="schedule-item">
-        <span class="schedule-time" aria-hidden="true"></span>
-        <div class="schedule-body">
-          <h3>Festa</h3>
-          <p>A festa vai das 14h às 4h da manhã, por isso venham com energia para dançar. Para o regresso, vejam as opções em <a href="#info">Informação Prática</a>, no cartão Transporte.</p>
+        <div class="schedule-item">
+          <span class="schedule-time">até às 4h</span>
+          <div class="schedule-body">
+            <h3>Festa</h3>
+            <p>A festa vai das 14h às 4h da manhã, por isso venham com energia para dançar. Para o regresso, vejam as opções em <a href="#info">Informação Prática</a>, no cartão Transporte.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -117,8 +148,11 @@
 <!-- ============ INFO PRÁTICA ============ -->
 <section class="info" id="info">
   <div class="section-inner">
-    <p class="eyebrow eyebrow--dark">Capítulo três</p>
-    <h2 class="section-title">Informação Prática</h2>
+    <header class="section-head">
+      <p class="eyebrow">Capítulo três</p>
+      <h2 class="section-title">Informação Prática</h2>
+      <div class="ornamento" aria-hidden="true"><svg><use href="#estrela"/></svg></div>
+    </header>
 
     <div class="info-grid">
       <div class="info-card">
@@ -146,15 +180,17 @@
       </div>
     </div>
   </div>
-  <div class="divider-azulejo divider-azulejo--flip" aria-hidden="true"></div>
 </section>
 
 <!-- ============ LOCAL / MAPA ============ -->
 <section class="local" id="local">
   <div class="section-inner">
-    <p class="eyebrow">Capítulo quatro</p>
-    <h2 class="section-title section-title--light">Como Chegar</h2>
-    <p class="section-lead">Escolhe o local para ver o mapa e abrir o caminho no teu telemóvel.</p>
+    <header class="section-head">
+      <p class="eyebrow">Capítulo quatro</p>
+      <h2 class="section-title section-title--light">Como Chegar</h2>
+      <div class="ornamento ornamento--claro" aria-hidden="true"><svg><use href="#estrela"/></svg></div>
+      <p class="section-lead">Escolham o local para ver o mapa e abrir o caminho no vosso telemóvel.</p>
+    </header>
 
     <div class="local-tabs" role="tablist" aria-label="Escolher o local">
       <button class="local-tab" role="tab" id="tab-igreja" data-local="igreja" aria-selected="true" aria-controls="painel-local" type="button">
@@ -189,18 +225,29 @@
 <!-- ============ CONFIRMAR PRESENÇA ============ -->
 <section class="rsvp" id="rsvp">
   <div class="section-inner">
-    <p class="eyebrow eyebrow--dark">Capítulo cinco</p>
-    <h2 class="section-title">Confirmar Presença</h2>
-    <p class="section-lead">Pedimos que nos liguem a confirmar a vossa presença até 30 de agosto de 2027.</p>
+    <header class="section-head">
+      <p class="eyebrow">Capítulo cinco</p>
+      <h2 class="section-title">Confirmar Presença</h2>
+      <div class="ornamento" aria-hidden="true"><svg><use href="#estrela"/></svg></div>
+    </header>
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Francisca</h3>
-        <p class="contact-phone"><a href="tel:+351935092152">935 092 152</a></p>
+    <div class="rsvp-card">
+      <div class="rsvp-lado">
+        <img src="assets/logo-medalhao.png" alt="">
+        <p class="rsvp-data">30.10.2027</p>
       </div>
-      <div class="contact-card">
-        <h3>Rafael</h3>
-        <p class="contact-phone"><a href="tel:+351967146093">967 146 093</a></p>
+      <div class="rsvp-corpo">
+        <p class="rsvp-titulo">Contamos convosco</p>
+        <p class="rsvp-texto">Confirmem a vossa presença até 31 de julho de 2027, com uma chamada para um de nós.</p>
+
+        <div class="contact-row">
+          <h3>Francisca</h3>
+          <p class="contact-phone"><a href="tel:+351935092152">935 092 152</a></p>
+        </div>
+        <div class="contact-row">
+          <h3>Rafael</h3>
+          <p class="contact-phone"><a href="tel:+351967146093">967 146 093</a></p>
+        </div>
       </div>
     </div>
     <p class="form-note">Liguem a qualquer um de nós. Teremos todo o gosto em ouvir a vossa resposta!</p>
@@ -209,8 +256,12 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <img src="assets/logo-medalhao.png" alt="Francisca &amp; Rafael" class="footer-logo">
-  <p class="footer-date">30 de Outubro de 2027</p>
+  <div class="footer-band">
+    <span>FRANCISCA</span>
+    <img src="assets/logo-medalhao.png" alt="Francisca &amp; Rafael" class="footer-logo">
+    <span>RAFAEL</span>
+  </div>
+  <p class="footer-date">30 · 10 · 2027</p>
   <p class="footer-note">Feito com carinho para o nosso dia.</p>
 </footer>
 

@@ -1,23 +1,26 @@
 /* ==========================================================================
-   RAFAEL & FRANCISCA — sistema de design
-   Paleta inspirada no outono português e nos azulejos: vinho, azul-azulejo,
-   dourado e pergaminho. Fraunces (display) + Karla (corpo).
+   FRANCISCA & RAFAEL — sistema de design
+   Segue os convites: bordeaux, creme, azul acinzentado, sálvia e verde-oliva.
+   Pinyon Script (nomes e títulos) + Cormorant Garamond (texto, maiúsculas
+   espaçadas e itálicos). Molduras de linha dupla e divisores com estrela.
    ========================================================================== */
 
 :root{
-  --wine: #4F242D;        /* bordeaux */
-  --wine-deep: #331820;   /* bordeaux mais escuro, para hover/profundidade */
-  --azulejo: #54647B;     /* azul ardósia */
-  --azulejo-deep: #3A4759;/* azul ardósia mais escuro, para fundos de secção */
-  --gold: #757C2C;        /* verde oliva, substitui o dourado como accent */
-  --gold-soft: #8791A6;   /* tom claro da família ardósia, para texto sobre fundos claros/escuros */
-  --azul-claro: #BDDDF6;  /* azul bebé, usado como toque de luz */
-  --cream: #EFF6FC;       /* fundo claro com base no azul bebé */
-  --cream-soft: #F8FBFD;  /* fundo quase branco, com o mesmo undertone frio */
-  --ink: #241E22;
+  --bordeaux: #6E1F2A;       /* capa do convite */
+  --bordeaux-deep: #541620;  /* hover */
+  --creme: #F4EFE6;          /* fundo principal, papel do convite */
+  --creme-claro: #FAF7F1;    /* cartões e caixas */
+  --azul: #B7C6D3;           /* fundo do cartão "O nosso dia" */
+  --azul-suave: #D3DEE7;     /* manchas de aguarela */
+  --salvia: #CBCCA8;         /* cartão "Contamos convosco" */
+  --oliva: #6F7349;          /* faixa do envelope */
+  --oliva-texto: #5F6340;    /* maiúsculas espaçadas sobre creme (contraste) */
+  --rosado: #EADCD6;         /* toque rosado da aguarela */
+  --tinta: #2E2A28;
+  --tinta-suave: #4E4845;
 
-  --font-display: "Fraunces", serif;
-  --font-body: "Karla", sans-serif;
+  --font-script: "Pinyon Script", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
 
   --max-width: 1120px;
   --radius: 2px;
@@ -34,33 +37,38 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--cream-soft);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--tinta);
+  background: var(--creme);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3{
-  font-family: var(--font-display);
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 p{ margin: 0; }
 
 a{ color: inherit; }
 
+/* Maiúsculas espaçadas, como "JUNTOS COM AS NOSSAS FAMÍLIAS" */
 .eyebrow{
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold-soft);
-  margin-bottom: 0.9rem;
+  color: var(--oliva-texto);
+  margin-bottom: 0.6rem;
   display: inline-block;
 }
-.eyebrow--dark{ color: var(--azulejo); }
+
+/* O letter-spacing deixa um espaço invisível depois da última letra, o que
+   puxa o texto centrado para a esquerda. Um padding-left igual compensa. */
+.eyebrow{ padding-left: 0.32em; }
 
 .section-inner{
   max-width: var(--max-width);
@@ -68,45 +76,57 @@ a{ color: inherit; }
   padding: 6rem 1.5rem;
 }
 
-.section-title{
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--wine);
-  margin-bottom: 1rem;
-}
-.section-title--light{ color: var(--cream); }
-
-.section-lead{
-  font-size: 1.05rem;
-  color: #5f6b78;
-  max-width: 46ch;
+.section-head{
+  text-align: center;
   margin-bottom: 3rem;
 }
-.section-lead--dark{ color: var(--cream-soft); opacity: 0.85; }
 
-.amp{ font-family: var(--font-display); font-style: italic; color: var(--gold); }
-
-/* ============ DIVISOR ============ */
-.divider-azulejo{
-  height: 46px;
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--azulejo) 0 6px,
-    var(--gold) 6px 8px,
-    transparent 8px 30px
-  );
-  background-size: 42px 42px;
-  opacity: 0.9;
+.section-title{
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  line-height: 1.15;
+  color: var(--bordeaux);
 }
-.divider-azulejo--flip{ transform: scaleY(-1); }
+.section-title--light{ color: var(--creme); }
+
+.section-lead{
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--tinta-suave);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* ============ DIVISOR: linha · estrela · linha ============ */
+.ornamento{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1rem auto 1.4rem;
+  color: var(--bordeaux);
+}
+.ornamento::before,
+.ornamento::after{
+  content: "";
+  width: 72px;
+  height: 1px;
+  background: var(--oliva);
+  opacity: 0.8;
+}
+.ornamento svg{ width: 14px; height: 14px; display: block; }
+.ornamento--claro{ color: var(--creme); }
+.ornamento--claro::before,
+.ornamento--claro::after{ background: var(--creme); opacity: 0.5; }
 
 /* ============ NAV ============ */
 .site-nav{
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(248, 251, 253, 0.92);
+  background: rgba(244, 239, 230, 0.94);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(43,33,28,0.08);
+  border-bottom: 1px solid rgba(110, 31, 42, 0.15);
 }
 .nav-inner{
   max-width: var(--max-width);
@@ -128,25 +148,27 @@ a{ color: inherit; }
 .nav-links{
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
 }
 .nav-links a{
   text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tinta);
   opacity: 0.8;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
-.nav-links a:hover{ opacity: 1; }
+.nav-links a:hover{ opacity: 1; color: var(--bordeaux); }
 .nav-cta{
-  background: var(--wine);
-  color: var(--cream-soft) !important;
+  background: var(--bordeaux);
+  color: var(--creme) !important;
   opacity: 1 !important;
-  padding: 0.55rem 1.1rem;
+  padding: 0.6rem 1.1rem;
   border-radius: var(--radius);
 }
-.nav-cta:hover{ background: var(--wine-deep); }
+.nav-cta:hover{ background: var(--bordeaux-deep); }
 
 .nav-toggle{
   display: none;
@@ -159,7 +181,7 @@ a{ color: inherit; }
 }
 .nav-toggle span{
   width: 22px; height: 2px;
-  background: var(--wine);
+  background: var(--bordeaux);
   display: block;
 }
 
@@ -170,18 +192,28 @@ a{ color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Lavagem suave nas cores do casamento: azul bebé, um rosado do bordeaux,
-     um toque de verde-oliva e creme de base. Sem padrões. */
+  /* Manchas de aguarela como no convite: azul acinzentado, sálvia e rosado
+     sobre papel creme. */
   background:
-    radial-gradient(ellipse 65% 50% at 12% 4%, rgba(189,221,246,0.95) 0%, rgba(189,221,246,0) 70%),
-    radial-gradient(ellipse 55% 45% at 92% 12%, rgba(79,36,45,0.13) 0%, rgba(79,36,45,0) 70%),
-    radial-gradient(ellipse 70% 40% at 50% 104%, rgba(117,124,44,0.16) 0%, rgba(117,124,44,0) 72%),
-    radial-gradient(ellipse 45% 35% at 4% 96%, rgba(189,221,246,0.65) 0%, rgba(189,221,246,0) 70%),
-    linear-gradient(180deg, #FBF8F5 0%, var(--cream) 100%);
+    radial-gradient(ellipse 38% 45% at 4% 18%, rgba(183,198,211,0.85) 0%, rgba(183,198,211,0) 72%),
+    radial-gradient(ellipse 30% 40% at 98% 45%, rgba(166,170,120,0.45) 0%, rgba(166,170,120,0) 72%),
+    radial-gradient(ellipse 34% 30% at 90% 92%, rgba(234,220,214,0.95) 0%, rgba(234,220,214,0) 72%),
+    radial-gradient(ellipse 40% 32% at 8% 98%, rgba(183,198,211,0.8) 0%, rgba(183,198,211,0) 72%),
+    var(--creme-claro);
   overflow: hidden;
-  padding-top: 4rem;
+  padding: 6.5rem 0 3rem;
 }
-.hero .eyebrow{ color: var(--wine); opacity: 0.7; }
+/* Moldura de linha dupla em bordeaux */
+.hero::before,
+.hero::after{
+  content: "";
+  position: absolute;
+  border: 1px solid var(--bordeaux);
+  pointer-events: none;
+}
+.hero::before{ top: 80px; right: 18px; bottom: 18px; left: 18px; }
+.hero::after{ top: 86px; right: 24px; bottom: 24px; left: 24px; opacity: 0.6; }
+
 .hero-inner{
   position: relative;
   z-index: 1;
@@ -189,86 +221,92 @@ a{ color: inherit; }
   padding: 2rem 1.5rem;
 }
 .hero-logo{
-  width: min(190px, 50vw);
+  width: min(110px, 30vw);
   height: auto;
   display: block;
-  margin: 0 auto 1.4rem;
+  margin: 0 auto 1.6rem;
 }
 
 .hero-photo{
   position: relative;
-  width: min(230px, 62vw);
+  width: min(220px, 58vw);
   aspect-ratio: 4 / 5;
-  margin: 0 auto 1.8rem;
-  border-radius: 999px 999px var(--radius) var(--radius); /* arco, como o monograma */
-  overflow: hidden;
-}
-.hero-photo--vazio{
-  border: 1.5px solid var(--azulejo);
-  outline: 1px solid rgba(84,100,123,0.35);
+  margin: 0 auto 2rem;
+  border-radius: 999px 999px var(--radius) var(--radius); /* arco, como o cartão do programa */
+  outline: 1px solid var(--bordeaux);
   outline-offset: 6px;
-  background: linear-gradient(180deg, var(--azul-claro) 0%, var(--cream) 72%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
 }
-.hero-photo-icone{
-  color: var(--azulejo);
-  opacity: 0.8;
-}
-.hero-photo-legenda{
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--azulejo-deep);
+.hero-photo > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
 
 .hero-names{
-  font-size: clamp(3rem, 9vw, 6.5rem);
-  color: var(--wine);
-  line-height: 1;
-  margin: 0.6rem 0;
+  font-family: var(--font-script);
+  font-size: clamp(3.4rem, 11vw, 6rem);
+  color: var(--bordeaux);
+  line-height: 1.05;
+  margin: 0.4rem 0 0.2rem;
 }
+.hero-names .nome{ display: block; }
+.hero-names .e{
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.3em;
+  color: var(--bordeaux);
+  margin: 0.15em 0;
+}
+
 .hero-date{
-  font-family: var(--font-body);
-  font-size: 1rem;
-  letter-spacing: 0.35em;
-  color: var(--azulejo);
-  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  text-transform: uppercase;
+  color: var(--tinta);
+  margin-bottom: 0.4rem;
 }
-.hero-date .dot{ color: var(--gold); margin: 0 0.2em; }
 .hero-sub{
-  font-size: 0.95rem;
-  color: #5f6b78;
-  margin-bottom: 3rem;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--tinta-suave);
+  margin-bottom: 2.8rem;
 }
+.hero-sub .dot{ color: var(--oliva); margin: 0 0.3em; }
+.sem-quebra{ white-space: nowrap; }
 
 .countdown{
   display: flex;
   justify-content: center;
-  gap: clamp(1rem, 4vw, 2.5rem);
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 .countdown-item{
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 64px;
+  min-width: 78px;
+  padding: 0 clamp(0.6rem, 3vw, 1.6rem);
 }
+.countdown-item + .countdown-item{ border-left: 1px solid rgba(111,115,73,0.45); }
 .countdown-item .num{
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: var(--wine);
-  font-variant-numeric: tabular-nums;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--bordeaux);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 .countdown-item .label{
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em;
   text-transform: uppercase;
-  color: var(--azulejo);
-  margin-top: 0.25rem;
+  color: var(--oliva-texto);
+  margin-top: 0.3rem;
 }
 
 .scroll-cue{
@@ -277,12 +315,14 @@ a{ color: inherit; }
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: var(--wine);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
+  color: var(--bordeaux);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  opacity: 0.75;
+  opacity: 0.8;
 }
+.scroll-cue span{ padding-left: 0.25em; }
 .scroll-cue svg{ animation: bob 2s ease-in-out infinite; }
 @keyframes bob{
   0%, 100%{ transform: translateY(0); }
@@ -290,33 +330,27 @@ a{ color: inherit; }
 }
 
 /* ============ GALERIA ============ */
-.galeria{ background: var(--cream-soft); }
+.galeria{ background: var(--creme); }
 .photo-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 160px;
-  gap: 1rem;
+  grid-auto-rows: 170px;
+  grid-auto-flow: dense; /* preenche os espaços vazios da grelha */
+  gap: 1.1rem;
 }
 .photo-placeholder{
-  background: var(--cream);
-  border: 2px dashed var(--azulejo);
+  background: var(--creme-claro);
+  border: 1px solid rgba(110,31,42,0.35);
+  padding: 6px;
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--azulejo);
-  font-size: 0.8rem;
-  text-align: center;
-  line-height: 1.4;
-  cursor: default;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .photo-placeholder--tall{ grid-row: span 2; }
 .photo-placeholder:hover{
   transform: translateY(-6px) rotate(-1deg);
-  border-color: var(--gold);
-  background: var(--azul-claro);
-  box-shadow: 0 14px 28px rgba(43,33,28,0.12);
+  border-color: var(--bordeaux);
+  box-shadow: 0 14px 28px rgba(46,42,40,0.14);
 }
 .photo-placeholder:nth-child(even):hover{ transform: translateY(-6px) rotate(1deg); }
 .photo-placeholder img{
@@ -324,100 +358,134 @@ a{ color: inherit; }
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius);
-}
-.hero-photo > img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 @media (max-width: 640px){
-  .photo-grid{ grid-template-columns: repeat(2, 1fr); }
+  .photo-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
 }
 
-/* ============ O GRANDE DIA ============ */
-.dia{ background: var(--azulejo-deep); }
-.dia .section-lead{ color: var(--gold-soft); }
+/* ============ O GRANDE DIA (cartão em arco, como "O nosso dia") ============ */
+.dia{ background: var(--azul); }
+.arco{
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--creme-claro);
+  border-radius: 350px 350px var(--radius) var(--radius);
+  outline: 1px solid rgba(250,247,241,0.9);
+  outline-offset: 9px;
+  padding: 5.5rem clamp(1.4rem, 6vw, 4rem) 3.5rem;
+  text-align: center;
+}
+.arco-logo{
+  width: 70px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.8rem;
+}
+.arco .section-head{ margin-bottom: 2.6rem; }
+.arco .eyebrow{ margin: 0.4rem 0 0; }
+.arco .section-lead{ margin-top: 1rem; font-size: 1.1rem; }
 
 .schedule{
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 .schedule-item{
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 1.5rem;
-  padding: 1.6rem 0;
-  border-top: 1px solid rgba(245,237,224,0.15);
+  grid-template-columns: 120px 1fr;
+  column-gap: 1.6rem;
 }
-.schedule-item:last-child{ border-bottom: 1px solid rgba(245,237,224,0.15); }
 .schedule-time{
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--gold);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--bordeaux);
+  text-align: right;
+  font-variant-numeric: oldstyle-nums;
+}
+.schedule-body{
+  position: relative;
+  border-left: 1px solid var(--oliva);
+  padding: 0 0 2rem 1.6rem;
+}
+.schedule-item:last-child .schedule-body{ padding-bottom: 0.4rem; }
+.schedule-body::before{
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0.55rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bordeaux);
 }
 .schedule-body h3{
-  color: var(--cream-soft);
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--tinta);
+  margin-bottom: 0.25rem;
 }
 .schedule-body p{
-  color: rgba(245,237,224,0.72);
-  font-size: 0.92rem;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--tinta-suave);
 }
-.schedule-body a{ color: var(--azul-claro); }
+.schedule-body a{ color: var(--bordeaux); }
 
 /* ============ INFORMAÇÃO POR PREENCHER ============
    Tudo o que estiver dentro de <mark class="falta"> é informação que ainda
    falta. Procura por 'class="falta"' no index.html para as encontrar. */
 .falta{
-  background: rgba(117,124,44,0.14);
-  color: var(--wine);
+  background: rgba(111,115,73,0.14);
+  color: var(--bordeaux);
   font-style: italic;
   padding: 0.05em 0.45em;
-  border-bottom: 1.5px dashed var(--gold);
+  border-bottom: 1.5px dashed var(--oliva);
   border-radius: var(--radius);
-}
-.dia .falta{
-  background: rgba(189,221,246,0.14);
-  color: var(--azul-claro);
-  border-bottom-color: var(--gold-soft);
 }
 
 /* ============ INFO PRÁTICA ============ */
-.info{ background: var(--cream-soft); }
+.info{ background: var(--creme); }
 .info-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 .info-card{
-  background: var(--cream);
-  padding: 1.8rem;
-  border-left: 3px solid var(--gold);
+  background: var(--creme-claro);
+  padding: 2rem 1.9rem;
+  border: 1px solid rgba(110,31,42,0.55);
+  outline: 1px solid rgba(110,31,42,0.25);
+  outline-offset: -7px;  /* segunda linha da moldura dupla */
   border-radius: var(--radius);
 }
 .info-card h3{
-  color: var(--wine);
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--oliva-texto);
+  margin-bottom: 0.7rem;
 }
 .info-card p{
-  color: #5f6b78;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  color: var(--tinta-suave);
+  font-size: 1.12rem;
+  line-height: 1.6;
 }
-.info-card a{ color: var(--wine); }
+.info-card a{ color: var(--bordeaux); }
+.info-card strong{ color: var(--tinta); font-weight: 600; }
 .info-card p + p{ margin-top: 0.8rem; }
 @media (min-width: 780px){
   .info-card--larga{ grid-column: span 2; }
 }
 
 /* ============ LOCAL ============ */
-.local{ background: var(--wine); }
-.local .section-lead{ color: var(--gold-soft); }
+.local{ background: var(--bordeaux); }
+.local .eyebrow{ color: rgba(244,239,230,0.75); }
+.local .section-lead{ color: rgba(244,239,230,0.85); }
 .local-tabs{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -431,36 +499,39 @@ a{ color: inherit; }
   gap: 0.2rem;
   text-align: left;
   font: inherit;
-  color: var(--cream-soft);
+  color: var(--creme);
   background: transparent;
-  border: 1px solid rgba(248,251,253,0.3);
+  border: 1px solid rgba(244,239,230,0.35);
   border-radius: var(--radius);
   padding: 1rem 1.3rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.local-tab:hover{ border-color: rgba(248,251,253,0.7); }
-.local-tab:focus-visible{ outline: 2px solid var(--azul-claro); outline-offset: 3px; }
+.local-tab:hover{ border-color: rgba(244,239,230,0.8); }
+.local-tab:focus-visible{ outline: 2px solid var(--azul); outline-offset: 3px; }
 .local-tab-nome{
-  font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-family: var(--font-script);
+  font-size: 1.7rem;
   line-height: 1.25;
 }
 .local-tab-nota{
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   opacity: 0.75;
 }
 .local-tab[aria-selected="true"]{
-  background: var(--cream-soft);
-  color: var(--wine);
-  border-color: var(--cream-soft);
+  background: var(--creme);
+  color: var(--bordeaux);
+  border-color: var(--creme);
 }
-.local-tab[aria-selected="true"] .local-tab-nota{ opacity: 0.8; color: var(--azulejo-deep); }
+.local-tab[aria-selected="true"] .local-tab-nota{ opacity: 1; color: var(--oliva-texto); }
 .map-frame{
-  border: 1px solid rgba(248,251,253,0.25);
+  border: 1px solid rgba(244,239,230,0.35);
+  padding: 6px;
   border-radius: var(--radius);
-  overflow: hidden;
-  background: rgba(248,251,253,0.08);
+  background: rgba(244,239,230,0.06);
 }
 .map-frame iframe{
   display: block;
@@ -470,9 +541,9 @@ a{ color: inherit; }
 }
 .local-morada{
   margin-top: 1.4rem;
-  color: var(--cream-soft);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
+  color: var(--creme);
+  font-style: italic;
+  font-size: 1.25rem;
 }
 .map-links{
   display: flex;
@@ -482,78 +553,139 @@ a{ color: inherit; }
 }
 .map-link{
   display: inline-block;
-  color: var(--cream-soft);
-  border-bottom: 1px solid var(--gold-soft);
+  color: var(--creme);
+  border-bottom: 1px solid rgba(244,239,230,0.45);
   text-decoration: none;
-  padding-bottom: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 3px;
 }
-.map-link:hover{ border-bottom-color: var(--cream-soft); }
+.map-link:hover{ border-bottom-color: var(--creme); }
 .map-link[hidden]{ display: none; }
 
-/* ============ RSVP ============ */
-.rsvp{ background: var(--cream-soft); }
-.contact-grid{
+/* ============ RSVP (cartão "Contamos convosco") ============ */
+.rsvp{ background: var(--creme); }
+.rsvp-card{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 680px;
-  margin: 2rem 0 1.5rem;
+  grid-template-columns: 2fr 3fr;
+  max-width: 860px;
+  margin: 0 auto 1.6rem;
+  box-shadow: 0 18px 40px rgba(46,42,40,0.12);
 }
-.contact-card{
-  background: var(--azul-claro);
-  border-left: 3px solid var(--gold);
-  padding: 2rem 1.8rem;
-  border-radius: var(--radius);
+.rsvp-lado{
+  background: var(--creme-claro);
+  border-right: 2px solid var(--bordeaux);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 3rem 1.5rem;
 }
-.contact-card h3{
-  color: var(--wine);
-  font-size: 1.7rem;
-  margin-bottom: 0.6rem;
+.rsvp-lado img{ width: min(150px, 60%); height: auto; display: block; }
+.rsvp-data{
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  color: var(--oliva-texto);
+}
+.rsvp-corpo{
+  background: var(--salvia);
+  padding: clamp(2rem, 5vw, 3.2rem);
+}
+.rsvp-titulo{
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  color: var(--bordeaux);
+  margin-bottom: 0.8rem;
+}
+.rsvp-texto{
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--tinta);
+  margin-bottom: 2.2rem;
+}
+.contact-row{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0 0.4rem;
+  border-bottom: 1px solid rgba(46,42,40,0.35);
+}
+.contact-row + .contact-row{ margin-top: 0.8rem; }
+.contact-row h3{
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--bordeaux);
 }
 .contact-phone{
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--tinta);
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+  margin-right: -0.12em; /* encosta o último algarismo ao fim da linha */
 }
 .contact-phone a{ color: inherit; text-decoration: none; }
-.contact-phone a:hover{ color: var(--wine); }
+.contact-phone a:hover{ color: var(--bordeaux); }
 .form-note{
-  font-size: 0.9rem;
-  color: #5b6270;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--tinta-suave);
   font-style: italic;
 }
 
-/* ============ FOOTER ============ */
+/* ============ FOOTER (faixa do envelope) ============ */
 .site-footer{
-  background: var(--ink);
-  color: var(--cream-soft);
+  background: var(--oliva);
+  color: var(--creme);
   text-align: center;
-  padding: 3.5rem 1.5rem;
+  padding: 3rem 1.5rem 2.5rem;
+  border-top: 3px double rgba(244,239,230,0.45);
 }
-.footer-names{
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 0.4rem;
+/* Três colunas: as laterais têm a mesma largura, por isso o medalhão fica
+   sempre no centro, mesmo com "FRANCISCA" mais comprido do que "RAFAEL". */
+.footer-band{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  margin-bottom: 1.4rem;
 }
+.footer-band span{
+  font-size: clamp(0.85rem, 2.6vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+.footer-band span:first-child{ justify-self: end; margin-right: -0.3em; }
+.footer-band span:last-child{ justify-self: start; }
 .footer-logo{
-  width: 112px;
+  width: 96px;
   height: auto;
   display: block;
-  margin: 0 auto 1.4rem;
-  background: #FBF8F5;
-  border-radius: 999px;
+  background: var(--creme-claro);
+  border-radius: 50%;
   padding: 1rem 0.8rem;
 }
-
 .footer-date{
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  color: var(--gold-soft);
-  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  margin-bottom: 0.8rem;
 }
 .footer-note{
-  font-size: 0.78rem;
-  opacity: 0.5;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.75;
 }
 
 /* ============ EFEITOS: reveal ao scroll ============ */
@@ -571,11 +703,14 @@ a{ color: inherit; }
 }
 
 /* ============ RESPONSIVE ============ */
-@media (max-width: 780px){
+.nav-links a{ white-space: nowrap; }
+
+/* Menu: passa ao botão de três riscas antes de os links deixarem de caber */
+@media (max-width: 980px){
   .nav-links{
     position: fixed;
     top: 64px; left: 0; right: 0;
-    background: var(--cream-soft);
+    background: var(--creme);
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -583,14 +718,39 @@ a{ color: inherit; }
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    border-bottom: 1px solid rgba(43,33,28,0.08);
+    border-bottom: 1px solid rgba(110,31,42,0.15);
   }
   .nav-links.open{ max-height: 400px; padding: 1rem 1.5rem 1.5rem; }
   .nav-links a{ padding: 0.7rem 0; width: 100%; }
   .nav-cta{ margin-top: 0.5rem; text-align: center; }
   .nav-toggle{ display: flex; }
+}
 
-  .contact-grid{ grid-template-columns: 1fr; }
+@media (max-width: 780px){
   .local-tabs{ grid-template-columns: 1fr; }
-  .schedule-item{ grid-template-columns: 1fr; gap: 0.4rem; }
+
+  .rsvp-card{ grid-template-columns: 1fr; }
+  .rsvp-lado{
+    border-right: 0;
+    border-bottom: 2px solid var(--bordeaux);
+    flex-direction: row;
+    padding: 1.6rem 1.5rem;
+  }
+  .rsvp-lado img{ width: 80px; }
+}
+
+@media (max-width: 520px){
+  .section-inner{ padding: 4.5rem 1.1rem; }
+  .hero::before{ right: 10px; bottom: 10px; left: 10px; }
+  .hero::after{ right: 15px; bottom: 15px; left: 15px; }
+  .hero-date{ font-size: 0.92rem; letter-spacing: 0.16em; padding-left: 0.16em; }
+  .hero-sub .dot{ display: none; }
+  .hero-sub .sem-quebra{ display: block; }
+  .arco{ padding-top: 4.5rem; outline-offset: 6px; }
+  .schedule-item{ grid-template-columns: 74px 1fr; column-gap: 1.1rem; }
+  .schedule-time{ font-size: 1.45rem; }
+  .schedule-body{ padding-left: 1.2rem; }
+  .countdown-item{ min-width: 0; }
+  .contact-row h3{ font-size: 1.9rem; }
+  .contact-phone{ font-size: 1.1rem; letter-spacing: 0.06em; margin-right: -0.06em; }
 }

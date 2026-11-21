@@ -14,12 +14,13 @@ Para ver alterações em tempo real, abre `index.html` no browser ou usa a exten
 
 ## Secções (por ordem)
 
-1. **Topo** — logótipo, foto do casal, nomes, data e contador, sobre um fundo suave nas cores do casamento
+1. **Topo** — medalhão, foto do casal em arco, nomes, data e contador, dentro de uma moldura de linha dupla, sobre manchas de aguarela como no convite
 2. **Em Fotografias** — galeria
-3. **O Grande Dia** — programa
+3. **O Grande Dia** — programa em linha do tempo, dentro de um cartão em arco sobre azul, como o cartão "O nosso dia"
 4. **Informação Prática** — dress code, estacionamento, alojamento, transporte, contactos
 5. **Como Chegar** — dois separadores, Basílica (cerimónia) e Quinta da Bichinha (copo de água, jantar e festa), cada um com o seu mapa, morada e ligações
-6. **Confirmar Presença** — as confirmações são feitas por chamada para a Francisca ou para o Rafael
+6. **Confirmar Presença** — cartão "Contamos convosco", igual ao do convite: as confirmações são feitas por chamada para a Francisca ou para o Rafael, até 31 de julho de 2027
+7. **Rodapé** — faixa verde-oliva com os nomes e o medalhão, como a do envelope
 
 Não há formulário de RSVP nem ligação a Google Sheets: quem quiser confirmar liga a um dos noivos.
 
@@ -39,8 +40,8 @@ Em "Confirmar Presença" os números da Francisca e do Rafael são ligações de
 
 O logótipo vem de `novo_logo.jpeg` e foi convertido em duas imagens com fundo transparente, para assentar bem em qualquer cor:
 
-- `assets/logo-completo.png` — moldura, monograma e nomes; usado no topo.
-- `assets/logo-medalhao.png` — só a moldura com o monograma; usado no menu e no rodapé, onde o texto ficaria ilegível.
+- `assets/logo-medalhao.png` — só a moldura com o monograma; usado no menu, no topo, no programa, no cartão de confirmação e no rodapé.
+- `assets/logo-completo.png` — moldura, monograma e nomes; neste momento não é usado (os nomes aparecem em letra caligráfica), mas fica guardado.
 
 Para trocar o logótipo, substitui estes dois ficheiros mantendo os nomes (PNG com fundo transparente).
 
@@ -50,7 +51,7 @@ No topo, dentro do arco, está `assets/aroeira.jpeg`. Para trocar, muda o `src` 
 
 ### Fundo do topo
 
-O fundo do topo é uma lavagem suave de azul bebé, um rosado do bordeaux e um toque de verde-oliva sobre creme, definida em `.hero` no `css/styles.css`. Não tem padrões.
+O fundo do topo imita as manchas de aguarela do convite (azul acinzentado, sálvia e rosado sobre creme) e tem uma moldura de linha dupla em bordeaux. Está definido em `.hero` no `css/styles.css`.
 
 ### Galeria
 
@@ -68,6 +69,8 @@ O cartão de Alojamento indica que é possível reservar quarto dentro da Quinta
 
 ## Publicar
 
+Endereço: **https://franciscarafael.netlify.app/**
+
 O site é servido pelo Netlify, ligado a este repositório do GitHub. Depois de alterares os ficheiros, faz *commit* e *push* para o ramo `main`; o Netlify publica sozinho, normalmente em um ou dois minutos.
 
 - Configuração no Netlify: *build command* vazio e *publish directory* `.` (a raiz do repositório).
@@ -75,6 +78,20 @@ O site é servido pelo Netlify, ligado a este repositório do GitHub. Depois de 
 - Em *Deploys* vês o histórico de publicações e podes voltar a uma versão anterior com um clique.
 - O GitHub Pages deixou de ser usado e deve ficar desligado em *Settings → Pages* do repositório.
 
+### Pré-visualização ao partilhar
+
+Quando o link é partilhado (WhatsApp, Facebook, etc.), aparece a imagem `assets/partilha.jpg` (1200×630, no estilo da capa do convite) com o título e a descrição definidos nas etiquetas `og:` do `<head>` do `index.html`.
+Se o endereço do site mudar, atualiza `og:url`, `og:image` e `canonical`. O WhatsApp guarda a pré-visualização em cache durante algum tempo, por isso alterações podem demorar a aparecer em links já partilhados.
+
 ## Cores
 
-Definidas no topo de `css/styles.css`: bordeaux, azul ardósia, verde oliva e azul bebé.
+O estilo segue os convites. As cores estão definidas no topo de `css/styles.css`: bordeaux (capa do convite), creme, azul acinzentado (cartão do programa), sálvia (cartão de confirmação) e verde-oliva (faixa do envelope).
+
+## Tipos de letra
+
+Vêm do Google Fonts, carregados no `<head>` do `index.html`:
+
+- **Pinyon Script** — letra caligráfica, para os nomes e os títulos das secções.
+- **Cormorant Garamond** — para o resto: texto, maiúsculas espaçadas (como "VAMOS CASAR") e itálicos.
+
+Os divisores (linha · estrela · linha) usam a estrela definida no início do `<body>` do `index.html`: `<div class="ornamento">`.
